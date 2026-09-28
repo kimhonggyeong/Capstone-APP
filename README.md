@@ -13,6 +13,7 @@ Antitude는 사용자가 실제 주식 시장과 유사한 환경에서 투자 �
 - **AI RAMEN**: 시장 요인을 바탕으로 종목 판단을 생성하고 과거 판단과 비교
 - **시장 반응 분석**: 여러 분석 에이전트와 RAG를 이용한 가상 이벤트 영향 분석
 - **금융 학습**: 금융 용어 사전과 퀴즈
+- **법률 챗봇**: Pinecone에 저장된 법률 자료를 이용한 질의응답
 
 ## 프로젝트 구성
 
@@ -27,8 +28,8 @@ Capston_Git/
 │       ├── core/               # 인증, 주식, 주문, 포트폴리오, WebSocket
 │       ├── scenario/           # 시나리오 플레이 및 평가
 │       ├── ramen/              # AI 종목 판단
-│       └── market_reaction/    # 시장 반응 시뮬레이션
-│       
+│       ├── market_reaction/    # 시장 반응 시뮬레이션
+│       └── legal_chatbot/      # 법률 RAG 챗봇
 └── Unity_App/                  # Unity 클라이언트
     ├── Assets/
     │   ├── Scenes/             # 화면 씬

@@ -117,5 +117,19 @@ async def get_foreign_daily_net_buy(symbol: str, days: int = 5) -> list[float]:
             "fid_input_iscd": symbol,
         })
     rows = sorted(data.get("output", []), key=lambda r: r["stck_bsop_date"])
-    return [float(r["frgn_ntby_qty"]) for r in rows][-days:]
+
+    # 장중에는 아직 집계되지 않은 당일 행이 빈 문자열로 내려올 수 있다.
+    # 빈 값이나 숫자가 아닌 값은 제외하고 확정된 최근 데이터만 사용한다.
+    values: list[float] = []
+    for row in rows:
+        raw_value = str(row.get("frgn_ntby_qty", "")).strip().replace(",", "")
+        if not raw_value:
+            continue
+
+        try:
+            values.append(float(raw_value))
+        except (TypeError, ValueError):
+            continue
+
+    return values[-days:]
 
