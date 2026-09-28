@@ -1,0 +1,130 @@
+"""MongoDB(rag_chunks/rag_manifest 컬렉션) 접근.
+
+읽기 실패는 RagRepositoryError 로 감싸 던진다 — "데이터 없음"(정상, None/[] 반환)과
+"조회 자체가 실패함"(Mongo 연결/쿼리 오류)을 호출부가 구분할 수 있게 하기 위함이다. 이
+예외를 catch 해서 warning 로그로 남기고 기존 계약(빈 리스트 반환)을 지키는 책임은 상위
+계층(vector_store.py)에 있다. 쓰기 실패는 절대 감싸지 않고 그대로 전파한다(빌드 스크립트는
+실패하면 조용히 넘기지 않고 그냥 실패해야 한다).
+
+embedding 필드는 float64 리스트 그대로 저장하면 BSON 배열 오버헤드까지 겹쳐 문서 하나당
+13KB 가까이 차지한다(1024차원 기준). rag_index.build_index() 가 어차피 float32 로 변환해
+FAISS 인덱스를 만들기 때문에(코사인 유사도 계산 자체가 float32), 저장 시점에 float64 로
+들고 있는 건 정밀도 낭비다. 그래서 embedding 은 float32 로 packing 한 `bson.Binary`로
+저장한다(문서당 약 4KB, 56% 감소) — 검색 결과에는 영향 없음.
+"""
+
+from __future__ import annotations
+
+import struct
+from typing import List, Optional
+
+from bson import Binary
+from pymongo.errors import PyMongoError
+
+from .rag_index import Chunk
+
+
+def _pack_embedding(embedding: List[float]) -> Binary:
+    return Binary(struct.pack(f"{len(embedding)}f", *embedding))
+
+
+def _unpack_embedding(raw: bytes) -> List[float]:
+    count = len(raw) // 4
+    return list(struct.unpack(f"{count}f", raw))
+
+
+class RagRepositoryError(Exception):
+    """rag_chunks/rag_manifest 읽기 실패(Mongo 연결/쿼리 오류)."""
+
+
+class RagRepository:
+    def __init__(self, database):
+        self._chunks = database["rag_chunks"]
+        self._manifest = database["rag_manifest"]
+
+    async def ensure_indexes(self) -> None:
+        """rag_chunks/rag_manifest 인덱스를 생성한다(이미 있으면 no-op, 반복 호출 안전)."""
+        await self._chunks.create_index([("stock_code", 1), ("rag_version", 1)])
+        await self._manifest.create_index("stock_code", unique=True)
+
+    async def get_manifest(self, stock_code: str) -> Optional[dict]:
+        try:
+            return await self._manifest.find_one({"_id": stock_code})
+        except PyMongoError as exc:
+            raise RagRepositoryError(
+                f"rag_manifest 조회 실패 (stock_code={stock_code}): {exc}"
+            ) from exc
+
+    async def get_chunks(self, stock_code: str, rag_version: int) -> List[Chunk]:
+        try:
+            cursor = self._chunks.find({"stock_code": stock_code, "rag_version": rag_version})
+            docs = await cursor.to_list(length=None)
+        except PyMongoError as exc:
+            raise RagRepositoryError(
+                f"rag_chunks 조회 실패 (stock_code={stock_code}): {exc}"
+            ) from exc
+        return [
+            Chunk(
+                chunk_id=d["_id"],
+                stock_code=d["stock_code"],
+                title=d["title"],
+                source_type=d["source_type"],
+                published_at=d["published_at"],
+                url=d["url"],
+                text=d["text"],
+                embedding=_unpack_embedding(d["embedding"]),
+                rag_version=d["rag_version"],
+            )
+            for d in docs
+        ]
+
+    async def insert_chunks(self, chunks: List[Chunk]) -> None:
+        if not chunks:
+            return
+        docs = [
+            {
+                "_id": c.chunk_id,
+                "stock_code": c.stock_code,
+                "rag_version": c.rag_version,
+                "title": c.title,
+                "source_type": c.source_type,
+                "published_at": c.published_at,
+                "url": c.url,
+                "text": c.text,
+                "embedding": _pack_embedding(c.embedding),
+            }
+            for c in chunks
+        ]
+        await self._chunks.insert_many(docs)
+
+    async def upsert_manifest(
+        self,
+        *,
+        stock_code: str,
+        rag_version: int,
+        embedding_model: str,
+        embedding_dimension: int,
+        chunk_count: int,
+        built_at: str,
+    ) -> None:
+        await self._manifest.replace_one(
+            {"_id": stock_code},
+            {
+                "_id": stock_code,
+                "stock_code": stock_code,
+                "rag_version": rag_version,
+                "embedding_model": embedding_model,
+                "embedding_dimension": embedding_dimension,
+                "chunk_count": chunk_count,
+                "built_at": built_at,
+            },
+            upsert=True,
+        )
+
+    async def delete_chunks_at_version(self, stock_code: str, rag_version: int) -> None:
+        await self._chunks.delete_many({"stock_code": stock_code, "rag_version": rag_version})
+
+    async def delete_old_chunks(self, stock_code: str, new_version: int) -> None:
+        await self._chunks.delete_many(
+            {"stock_code": stock_code, "rag_version": {"$lt": new_version}}
+        )
