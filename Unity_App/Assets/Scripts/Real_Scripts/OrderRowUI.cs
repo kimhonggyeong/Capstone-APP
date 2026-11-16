@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class OrderRowUI : MonoBehaviour
 {
     public TMP_Text sideText, statusText, priceText, quantityText, remainingText;
+    public Image sideBackground;
     [Header("주문 날짜 / 시간 (한국시간)")]
     public TMP_Text orderDateText;
     public TMP_Text orderTimeText;
@@ -20,7 +21,7 @@ public class OrderRowUI : MonoBehaviour
     {
         Order = order;
         Set(sideText, order.SideLabel);
-        if (sideText != null) sideText.color = order.side == "BUY" ? Color.red : Color.blue;
+        ApplySideColors(sideText, sideBackground, order.side);
         Set(statusText, order.StatusLabel);
         Set(priceText, $"{order.orderPrice:N0}원");
         Set(quantityText, $"{order.quantity:N0}주");
@@ -31,6 +32,29 @@ public class OrderRowUI : MonoBehaviour
         SetInteractable(true);
         SetSelected(false);
     }
+    public static void ApplySideColors(TMP_Text text, Image background, string side)
+    {
+        Color textColor = Color.gray;
+        Color backgroundColor = new Color32(245, 245, 245, 255);
+
+        switch (side)
+        {
+            case "BUY":
+                textColor = Color.red;
+                backgroundColor = new Color32(255, 234, 234, 255);
+                break;
+            case "SELL":
+                textColor = Color.blue;
+                backgroundColor = new Color32(232, 240, 255, 255);
+                break;
+        }
+
+        if (text != null)
+            text.color = textColor;
+        if (background != null)
+            background.color = backgroundColor;
+    }
+
     static void Set(TMP_Text text, string value) { if (text != null) text.text = value; }
     static void Wire(Button button, UnityEngine.Events.UnityAction callback)
     {

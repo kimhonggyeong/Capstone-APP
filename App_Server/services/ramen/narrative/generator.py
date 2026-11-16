@@ -17,4 +17,3 @@ async def generate_comparison(user_judge: str, ai_judge: str, weighted_factors: 
     system, user = build_comparison_prompt(user_judge, ai_judge, weighted_factors)
     call = route_narrative_request(changed=False, is_compare=True)
     return await asyncio.to_thread(call, system, user)
-

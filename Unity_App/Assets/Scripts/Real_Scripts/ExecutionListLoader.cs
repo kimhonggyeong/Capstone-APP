@@ -56,6 +56,8 @@ public class ExecutionListLoader : MonoBehaviour
      */
     private string oldestExecutionTime = "";
 
+    public bool IsLoading => isLoading;
+
     private bool isLoading;
     private bool hasMore = true;
     private bool isClosing;
@@ -210,6 +212,7 @@ public class ExecutionListLoader : MonoBehaviour
                 UnityWebRequest.Get(url)
         )
         {
+            request.timeout = 30;
             yield return request.SendWebRequest();
 
             if (
@@ -217,7 +220,6 @@ public class ExecutionListLoader : MonoBehaviour
                 symbol != currentSymbol
             )
             {
-                FinishLoading();
                 yield break;
             }
 

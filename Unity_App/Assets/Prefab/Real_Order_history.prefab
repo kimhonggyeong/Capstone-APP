@@ -803,6 +803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrderRowUI
   sideText: {fileID: 7469174699380308383}
+  sideBackground: {fileID: 788197887364550293}
   statusText: {fileID: 5804545887821310955}
   priceText: {fileID: 546944205425627603}
   quantityText: {fileID: 3138323067464562545}

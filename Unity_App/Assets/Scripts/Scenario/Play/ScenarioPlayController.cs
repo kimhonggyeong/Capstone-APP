@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScenarioPlayController : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class ScenarioPlayController : MonoBehaviour
     [Tooltip("시나리오 패널 ScrollRect의 Content를 연결")]
     [SerializeField]
     private RectTransform scenarioContent;
+
+    [Tooltip("턴 화면 갱신 후 맨 위/맨 왼쪽으로 이동할 Scroll Rect 오브젝트를 연결하세요.")]
+    [SerializeField]
+    private ScrollRect[] scrollRectsToReset;
 
     [Header("로딩")]
     [SerializeField]
@@ -131,8 +136,6 @@ public class ScenarioPlayController : MonoBehaviour
     {
         currentScenario = scenario;
 
-        ResetContentY(scenarioContent);
-
         ClearStockButtons();
         CreateStockButtons();
 
@@ -188,17 +191,13 @@ public class ScenarioPlayController : MonoBehaviour
                 this
             );
         }
-    }
 
-    private static void ResetContentY(RectTransform content)
-    {
-        if (content == null)
-            return;
-
-        Canvas.ForceUpdateCanvases();
-        Vector2 position = content.anchoredPosition;
-        position.y = 0f;
-        content.anchoredPosition = position;
+        StartCoroutine(
+            ScenarioScrollUtility.ResetToStart(
+                scrollRectsToReset,
+                scenarioContent
+            )
+        );
     }
 
     private void CreateStockButtons()

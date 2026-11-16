@@ -1,6 +1,7 @@
 using NativeWebSocket;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -30,6 +31,13 @@ public class OrderBookLoader : MonoBehaviour
     [Header("매수/매도 주문 패널 호가")]
     public OrderBookRowUI[] tradeRows =
         new OrderBookRowUI[10];
+
+    [Header("매수/매도 호가 로딩")]
+    [Tooltip("매수/매도 패널의 호가 영역을 덮는 Loading_Panel을 연결하세요.")]
+    [SerializeField] private GameObject tradeLoadingPanel;
+
+    [Min(1f)]
+    [SerializeField] private float tradeLoadingTimeout = 30f;
 
 
     // =========================================================
@@ -87,13 +95,16 @@ public class OrderBookLoader : MonoBehaviour
     // 내부 상태
     // =========================================================
 
+    public bool IsLoading { get; private set; }
+    public string LoadError { get; private set; }
+
     private string currentSymbol;
 
     private WebSocket orderBookSocket;
 
     private int socketGeneration = 0;
+    private Coroutine tradeLoadingRoutine;
 
-    private bool isClosing = false;
 
 
     /*
@@ -121,6 +132,11 @@ public class OrderBookLoader : MonoBehaviour
     // =========================================================
     // Update
     // =========================================================
+
+    private void Awake()
+    {
+        SetTradeLoadingVisible(false);
+    }
 
     private void Update()
     {
@@ -254,6 +270,17 @@ public class OrderBookLoader : MonoBehaviour
             ClearMainRows();
         }
 
+        IsLoading = true;
+        LoadError = null;
+
+        if (tradeMode)
+        {
+            SetTradeLoadingVisible(true);
+            tradeLoadingRoutine = StartCoroutine(
+                WaitForTradeOrderBook(socketGeneration)
+            );
+        }
+
         ConnectOrderBookSocket(
             currentSymbol,
             socketGeneration
@@ -322,10 +349,7 @@ public class OrderBookLoader : MonoBehaviour
                 return;
             }
 
-            Debug.LogError(
-                "[호가 WebSocket 오류] " +
-                error
-            );
+            ReportInitialLoadError("[호가 WebSocket 오류] " + error);
         };
 
 
@@ -342,6 +366,9 @@ public class OrderBookLoader : MonoBehaviour
             {
                 return;
             }
+
+            if (IsLoading)
+                ReportInitialLoadError("호가 데이터 수신 전에 연결이 종료되었습니다.");
 
             Debug.Log(
                 "[호가 WebSocket 종료] " +
@@ -400,12 +427,22 @@ public class OrderBookLoader : MonoBehaviour
                 DrawOrderBook(
                     response
                 );
+
+                string requiredSide = tradeBuyMode ? "bid" : "ask";
+                if (response.rows != null && response.rows.Exists(
+                    row => row != null && row.price > 0 &&
+                           (tradeMode
+                               ? row.side == requiredSide
+                               : row.side == "ask" || row.side == "bid")))
+                {
+                    IsLoading = false;
+                    LoadError = null;
+                }
             }
             catch (Exception error)
             {
-                Debug.LogError(
-                    "호가 WebSocket JSON 파싱 실패: " +
-                    error.Message
+                ReportInitialLoadError(
+                    "호가 WebSocket JSON 파싱 실패: " + error.Message
                 );
             }
         };
@@ -426,9 +463,8 @@ public class OrderBookLoader : MonoBehaviour
                 socketGeneration
             )
             {
-                Debug.LogError(
-                    "호가 WebSocket 연결 실패: " +
-                    error.Message
+                ReportInitialLoadError(
+                    "호가 WebSocket 연결 실패: " + error.Message
                 );
             }
         }
@@ -438,6 +474,59 @@ public class OrderBookLoader : MonoBehaviour
     // =========================================================
     // 호가 출력
     // =========================================================
+
+    private IEnumerator WaitForTradeOrderBook(int generation)
+    {
+        float deadline = Time.realtimeSinceStartup + Mathf.Max(1f, tradeLoadingTimeout);
+
+        while (generation == socketGeneration && tradeMode && IsLoading)
+        {
+            if (Time.realtimeSinceStartup >= deadline)
+            {
+                ReportInitialLoadError("매수/매도 호가 데이터 수신 시간이 초과되었습니다.");
+                break;
+            }
+
+            yield return null;
+        }
+
+        if (generation != socketGeneration || !tradeMode)
+            yield break;
+
+        // 호가 행과 총 잔량 표시가 반영된 다음 프레임에 로딩을 닫습니다.
+        yield return null;
+
+        if (generation != socketGeneration || !tradeMode)
+            yield break;
+
+        Canvas.ForceUpdateCanvases();
+        SetTradeLoadingVisible(false);
+        tradeLoadingRoutine = null;
+    }
+
+    private void SetTradeLoadingVisible(bool visible)
+    {
+        if (tradeLoadingPanel == null)
+            return;
+
+        tradeLoadingPanel.SetActive(visible);
+        if (visible)
+            tradeLoadingPanel.transform.SetAsLastSibling();
+    }
+
+    private void ReportInitialLoadError(string message)
+    {
+        Debug.LogError(message);
+
+        if (!IsLoading)
+            return;
+
+        IsLoading = false;
+        LoadError = message;
+
+        if (!tradeMode && currentPriceText != null)
+            currentPriceText.text = "호가를 불러오지 못했습니다.";
+    }
 
     private void DrawOrderBook(
         OrderBookSocketResponse response
@@ -1054,46 +1143,32 @@ public class OrderBookLoader : MonoBehaviour
     public async void StopOrderBook()
     {
         socketGeneration++;
+        currentSymbol = null;
+        IsLoading = false;
 
-        currentSymbol =
-            null;
-
-        if (
-            orderBookSocket == null ||
-            isClosing
-        )
+        if (tradeLoadingRoutine != null)
         {
-            return;
+            StopCoroutine(tradeLoadingRoutine);
+            tradeLoadingRoutine = null;
         }
 
-        isClosing =
-            true;
+        SetTradeLoadingVisible(false);
 
-        WebSocket socketToClose =
-            orderBookSocket;
+        // 닫는 중에 새 소켓이 열려도 각각의 연결을 독립적으로 정리합니다.
+        WebSocket socketToClose = orderBookSocket;
+        orderBookSocket = null;
 
-        orderBookSocket =
-            null;
+        if (socketToClose == null)
+            return;
 
         try
         {
             await socketToClose.Close();
-
-            Debug.Log(
-                "호가 WebSocket 수동 종료"
-            );
+            Debug.Log("호가 WebSocket 수동 종료");
         }
         catch (Exception error)
         {
-            Debug.LogWarning(
-                "호가 WebSocket 종료 오류: " +
-                error.Message
-            );
-        }
-        finally
-        {
-            isClosing =
-                false;
+            Debug.LogWarning("호가 WebSocket 종료 오류: " + error.Message);
         }
     }
 }

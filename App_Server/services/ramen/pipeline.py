@@ -1,39 +1,36 @@
-"""전체 파이프라인 조립: 요인 조회 -> 스코어링 -> LLM 서술 -> 이력 저장."""
-import asyncio
-from datetime import datetime
+"""전체 파이프라인 조립: 요인 조회 -> 스코어링 -> LLM 서술 -> 이력 저장.
+event_listener.py가 트리거 조건 충족 시 이 함수를 호출한다.
+"""
+from datetime import datetime, timezone
 from services.ramen.factors.resolver import resolve_factors
-from services.ramen.factors.news_classifier import classify_news
 from services.ramen.scoring.rubric import compute_weights
-from services.ramen.scoring.judge import decide_judgment
-from services.ramen.scoring.confidence import compute_confidence
+from services.ramen.scoring.fuzzy_judge import compute_judgment
 from services.ramen.narrative.generator import generate_reasoning_summary
 from services.ramen.history.repository import get_latest_judgment, save_judgment
 from services.ramen.history.change_detector import detect_change
 
 
-async def run_judgment_pipeline(
-    symbol: str,
-    market_data: dict,
-    articles: list[str] | None = None,
-    user_id: str = "system",
-) -> dict:
-    classified_news = [
-        await asyncio.to_thread(classify_news, article) for article in (articles or [])
-    ]
-    resolved = resolve_factors(market_data, classified_news)
+async def run_judgment_pipeline(symbol: str, market_data: dict, user_id: str = "system") -> dict:
+    resolved = resolve_factors(market_data)
     weighted = compute_weights(resolved)
-    judge = decide_judgment(weighted)
-    confidence = compute_confidence(weighted)
-    summary = await generate_reasoning_summary(judge, weighted)
+    result = compute_judgment(weighted)
+
+    # LLM은 여기서만 호출되고, 위에서 계산된 숫자는 절대 바꾸지 않는다.
+    summary = await generate_reasoning_summary(result["judge"], weighted)
 
     previous = await get_latest_judgment(symbol, user_id)
-    changed = detect_change(previous, judge)
+    changed = detect_change(previous, result["judge"], result["probabilities"])
+
     doc = {
-        "user_id": user_id,
         "symbol": symbol,
-        "time": datetime.utcnow().isoformat(timespec="seconds"),
-        "judge": judge,
-        "confidence": confidence,
+        "user_id": user_id,
+        # timezone.utc를 명시해야 "+00:00"이 붙는다 - 이게 없으면(datetime.utcnow())
+        # ISO 문자열에 시간대 표시가 없어서, 프론트에서 new Date(...)로 파싱할 때
+        # UTC가 아니라 브라우저 로컬 시간으로 오인해 KST 기준 9시간 과거로 보인다.
+        "time": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "judge": result["judge"],
+        "confidence": result["confidence"],
+        "probabilities": result["probabilities"],
         "reason": summary,
         "factors": weighted,
         "changed": changed,

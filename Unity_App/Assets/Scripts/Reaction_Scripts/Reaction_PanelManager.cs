@@ -9,6 +9,7 @@ public class Reaction_PanelManager : MonoBehaviour
     public GameObject loadingPanel;
     public float rootDisableDelay = .6f;
     Coroutine closeRoutine;
+    bool analysisInProgress;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class Reaction_PanelManager : MonoBehaviour
         if (simulatorRoot != null) simulatorRoot.SetActive(true);
         if (resultPanelSlider != null) resultPanelSlider.HideForSwitchImmediate();
         if (inputPanelSlider != null) inputPanelSlider.OpenPanel();
+        if (analysisInProgress) ShowLoadingOnly();
     }
     public void CloseSimulator()
     {
@@ -34,6 +36,7 @@ public class Reaction_PanelManager : MonoBehaviour
         StopClose(); if (simulatorRoot != null) simulatorRoot.SetActive(true);
         if (resultPanelSlider != null) resultPanelSlider.CloseForSwitch();
         if (inputPanelSlider != null) inputPanelSlider.OpenPanel();
+        if (analysisInProgress) ShowLoadingOnly();
     }
     public void ShowResult()
     {
@@ -42,7 +45,13 @@ public class Reaction_PanelManager : MonoBehaviour
         if (resultPanelSlider != null) resultPanelSlider.OpenPanel();
     }
     public void ShowLoadingOnly() { if (loadingPanel != null) loadingPanel.SetActive(true); }
-    public void HideLoading() { if (loadingPanel != null) loadingPanel.SetActive(false); }
+    public void HideLoading() { if (loadingPanel != null) loadingPanel.SetActive(analysisInProgress); }
+    public void SetAnalysisLoading(bool value)
+    {
+        analysisInProgress = value;
+        if (value) ShowLoadingOnly();
+        else HideLoading();
+    }
     // The result screen does not return directly to the input screen.
     // Closing it ends the simulator; the next OpenSimulator starts from InputPanel.
     public void OnClickBackToInput() { CloseSimulator(); }
@@ -52,14 +61,14 @@ public class Reaction_PanelManager : MonoBehaviour
     {
         if (inputPanelSlider != null) inputPanelSlider.HideForSwitchImmediate();
         if (resultPanelSlider != null) resultPanelSlider.HideForSwitchImmediate();
-        if (loadingPanel != null) loadingPanel.SetActive(false);
+        HideLoading();
         SetPanelRectActive(inputPanelSlider, false);
         SetPanelRectActive(resultPanelSlider, false);
         if (simulatorRoot != null) simulatorRoot.SetActive(false);
     }
     void DisableRootFromSlider()
     {
-        if (loadingPanel != null) loadingPanel.SetActive(false);
+        HideLoading();
         SetPanelRectActive(inputPanelSlider, false);
         SetPanelRectActive(resultPanelSlider, false);
         if (simulatorRoot != null) simulatorRoot.SetActive(false);

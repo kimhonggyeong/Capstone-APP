@@ -36,6 +36,16 @@ class DocumentStore(Protocol):
         upsert: bool = False,
     ) -> str | None: ...
     def delete_many(self, collection: str, query: dict[str, Any]) -> int: ...
+    def record_quiz_progress_event(
+        self,
+        user_id: str,
+        *,
+        quiz_id: str | None,
+        is_correct: bool | None,
+        session_completed: bool,
+        event_id: str | None,
+        updated_at: str,
+    ) -> dict: ...
 
 
 def _get_nested(document: dict, path: str) -> Any:
@@ -148,6 +158,42 @@ class MemoryStore:
             self._collections[collection] = kept
         return deleted
 
+    def record_quiz_progress_event(
+        self,
+        user_id: str,
+        *,
+        quiz_id: str | None,
+        is_correct: bool | None,
+        session_completed: bool,
+        event_id: str | None,
+        updated_at: str,
+    ) -> dict:
+        # Keep the read, duplicate check and write under the same lock.
+        with self._lock:
+            current = self.find_one("quiz_progress", {"user_id": user_id}) or {}
+            processed = list(current.get("processed_event_ids") or [])
+            if event_id and event_id in processed:
+                return current
+            answered = set(current.get("answered_quiz_ids") or [])
+            if quiz_id:
+                answered.add(quiz_id)
+            current.update(
+                schema_version=1,
+                user_id=user_id,
+                answered_quiz_ids=sorted(answered),
+                attempt_count=int(current.get("attempt_count") or 0) + bool(quiz_id),
+                correct_attempt_count=int(current.get("correct_attempt_count") or 0)
+                + bool(quiz_id and is_correct),
+                completed_sessions=int(current.get("completed_sessions") or 0)
+                + int(session_completed),
+                updated_at=updated_at,
+            )
+            if event_id:
+                processed.append(event_id)
+            current["processed_event_ids"] = processed
+            self.replace_one("quiz_progress", {"user_id": user_id}, current, upsert=True)
+            return self.find_one("quiz_progress", {"user_id": user_id})
+
 
 class MongoStore:
     """PyMongo 기반 실제 저장소. import는 실행 시점까지 지연한다."""
@@ -165,6 +211,8 @@ class MongoStore:
             connectTimeoutMS=timeout_ms,
         )
         self._db = self._client[database]
+        self._quiz_progress_index_ready = False
+        self._quiz_progress_index_lock = RLock()
 
     def ping(self) -> None:
         self._client.admin.command("ping")
@@ -216,6 +264,7 @@ class MongoStore:
                 ([("session_id", ASCENDING)], True),
             ],
             "user_behavior_profiles": [([("user_id", ASCENDING)], True)],
+            "quiz_progress": [([("user_id", ASCENDING)], True)],
         }
         for collection, indexes in specs.items():
             for keys, unique in indexes:
@@ -273,6 +322,77 @@ class MongoStore:
 
     def delete_many(self, collection: str, query: dict[str, Any]) -> int:
         return self._db[collection].delete_many(query).deleted_count
+
+    def record_quiz_progress_event(
+        self,
+        user_id: str,
+        *,
+        quiz_id: str | None,
+        is_correct: bool | None,
+        session_completed: bool,
+        event_id: str | None,
+        updated_at: str,
+    ) -> dict:
+        from pymongo import ReturnDocument
+        from pymongo.errors import DuplicateKeyError
+
+        # A single-document pipeline makes counters and retry deduplication
+        # atomic even when the web and app submit at the same time.
+        processed = {"$ifNull": ["$processed_event_ids", []]}
+        duplicate = {"$in": [{"$literal": event_id}, processed]} if event_id else False
+
+        def increment(field: str, amount: int) -> dict:
+            return {
+                "$add": [
+                    {"$ifNull": [f"${field}", 0]},
+                    {"$cond": [duplicate, 0, amount]},
+                ]
+            }
+
+        answered = {"$ifNull": ["$answered_quiz_ids", []]}
+        update = [{"$set": {
+            "schema_version": 1,
+            "user_id": {"$literal": user_id},
+            "answered_quiz_ids": {
+                "$cond": [
+                    duplicate,
+                    answered,
+                    {"$setUnion": [answered, {"$literal": [quiz_id] if quiz_id else []}]},
+                ]
+            },
+            "attempt_count": increment("attempt_count", int(bool(quiz_id))),
+            "correct_attempt_count": increment(
+                "correct_attempt_count", int(bool(quiz_id and is_correct))
+            ),
+            "completed_sessions": increment("completed_sessions", int(session_completed)),
+            "processed_event_ids": {
+                "$setUnion": [processed, {"$literal": [event_id] if event_id else []}]
+            },
+            "updated_at": {"$cond": [duplicate, "$updated_at", {"$literal": updated_at}]},
+        }}]
+        collection = self._db["quiz_progress"]
+        # This server does not run the general index initializer at startup.
+        # Ensure uniqueness before the first upsert so concurrent first writes
+        # cannot create separate progress documents for the same account.
+        if not self._quiz_progress_index_ready:
+            with self._quiz_progress_index_lock:
+                if not self._quiz_progress_index_ready:
+                    collection.create_index("user_id", unique=True)
+                    self._quiz_progress_index_ready = True
+        try:
+            value = collection.find_one_and_update(
+                {"user_id": user_id}, update, upsert=True,
+                return_document=ReturnDocument.AFTER,
+            )
+        except DuplicateKeyError:
+            # Two devices may create this user's first document concurrently.
+            value = collection.find_one_and_update(
+                {"user_id": user_id}, update, upsert=False,
+                return_document=ReturnDocument.AFTER,
+            )
+        if value is None:
+            raise RuntimeError("퀴즈 진행도를 저장하지 못했습니다.")
+        return self._clean(value)
 
 
 _store: DocumentStore | None = None

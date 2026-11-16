@@ -34,49 +34,129 @@ public class StockDetailLoader : MonoBehaviour
     public TMP_Text foreignSupplyText;
     public TMP_Text institutionSupplyText;
 
+    public bool IsLoading { get; private set; }
+    public string LoadError { get; private set; }
+
     private Coroutine loadRoutine;
+    private int requestGeneration;
 
     public void LoadDetail(string symbol)
     {
-        if (loadRoutine != null)
-            StopCoroutine(loadRoutine);
+        StopDetail();
+        LoadError = null;
+        ClearDetail();
 
-        loadRoutine = StartCoroutine(LoadDetailRoutine(symbol));
+        if (string.IsNullOrWhiteSpace(symbol))
+        {
+            LoadError = "종목 상세 정보를 불러올 종목 코드가 없습니다.";
+            Debug.LogError(LoadError);
+            return;
+        }
+
+        IsLoading = true;
+        loadRoutine = StartCoroutine(LoadDetailRoutine(symbol.Trim(), requestGeneration));
     }
 
-    private IEnumerator LoadDetailRoutine(string symbol)
+    public void StopDetail()
     {
-        if (string.IsNullOrEmpty(symbol))
-            yield break;
+        requestGeneration++;
 
-        string url = $"{ServerConfig.HttpBaseUrl}/stock-detail?symbol={symbol}";
+        if (loadRoutine != null)
+        {
+            StopCoroutine(loadRoutine);
+            loadRoutine = null;
+        }
+
+        IsLoading = false;
+    }
+
+    private void OnDisable()
+    {
+        StopDetail();
+    }
+
+    private IEnumerator LoadDetailRoutine(string symbol, int generation)
+    {
+        string url = $"{ServerConfig.HttpBaseUrl}/stock-detail?symbol=" +
+                     UnityWebRequest.EscapeURL(symbol);
 
         Debug.Log("종목 상세 정보 요청 URL: " + url);
 
-        using (UnityWebRequest req = UnityWebRequest.Get(url))
+        try
         {
-            yield return req.SendWebRequest();
-
-            Debug.Log("종목 상세 정보 응답 코드: " + req.responseCode);
-            Debug.Log("종목 상세 정보 응답 내용: " + req.downloadHandler.text);
-
-            if (req.result != UnityWebRequest.Result.Success)
+            using (UnityWebRequest request = UnityWebRequest.Get(url))
             {
-                Debug.LogError("종목 상세 정보 요청 실패: " + req.downloadHandler.text);
-                yield break;
+                request.timeout = 30;
+                yield return request.SendWebRequest();
+
+                if (generation != requestGeneration)
+                    yield break;
+
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    LoadError = "종목 상세 정보 요청 실패: " + request.error;
+                    Debug.LogError(LoadError + "\n" + request.downloadHandler.text);
+                    yield break;
+                }
+
+                StockDetailResponse info = null;
+
+                try
+                {
+                    info = JsonConvert.DeserializeObject<StockDetailResponse>(
+                        request.downloadHandler.text
+                    );
+                }
+                catch (JsonException error)
+                {
+                    LoadError = "종목 상세 정보 파싱 실패: " + error.Message;
+                }
+
+                if (info == null)
+                {
+                    if (string.IsNullOrEmpty(LoadError))
+                        LoadError = "종목 상세 정보 응답이 비어 있습니다.";
+
+                    Debug.LogError(LoadError);
+                    yield break;
+                }
+
+                DrawDetail(info);
             }
-
-            StockDetailResponse info =
-                JsonConvert.DeserializeObject<StockDetailResponse>(req.downloadHandler.text);
-
-            if (info == null)
-            {
-                Debug.LogError("종목 상세 정보 파싱 실패");
-                yield break;
-            }
-
-            DrawDetail(info);
         }
+        finally
+        {
+            if (generation == requestGeneration)
+            {
+                IsLoading = false;
+                loadRoutine = null;
+            }
+        }
+    }
+
+    private void ClearDetail()
+    {
+        TMP_Text[] fields =
+        {
+            openPriceText, highPriceText, lowPriceText, volumeText,
+            week52HighText, week52LowText, upperLimitText, lowerLimitText,
+            marketCapText, perText, pbrText, epsText, bpsText, roeText,
+            revenueText, operatingProfitText,
+            individualSupplyText, foreignSupplyText, institutionSupplyText
+        };
+
+        foreach (TMP_Text field in fields)
+        {
+            if (field != null)
+                field.text = "-";
+        }
+
+        if (individualSupplyText != null)
+            individualSupplyText.color = Color.black;
+        if (foreignSupplyText != null)
+            foreignSupplyText.color = Color.black;
+        if (institutionSupplyText != null)
+            institutionSupplyText.color = Color.black;
     }
 
     private void DrawDetail(StockDetailResponse info)

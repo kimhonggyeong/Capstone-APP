@@ -1,49 +1,41 @@
 import asyncio
-import logging
+from contextlib import suppress
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from services.ramen.api.routes import judgment, compare, history, analyze
+from services.ramen.api.routes import judgment, compare, history, analyze, watch
 from services.ramen.config import settings
 from services.ramen.marketdata.poller import run_polling_loop
-from services.ramen.news.poller import run_news_polling_loop
-
-logging.basicConfig(level=logging.INFO)
 
 app = FastAPI(title="AI 판단 서비스")
+app.add_middleware(CORSMiddleware, allow_origins=settings.cors_allow_origins,
+                   allow_methods=["*"], allow_headers=["*"])
+for router in (judgment.router, compare.router, history.router, analyze.router, watch.router):
+    app.include_router(router)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=settings.cors_allow_origins,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-app.include_router(judgment.router)
-app.include_router(compare.router)
-app.include_router(history.router)
-app.include_router(analyze.router)
+_polling_task: asyncio.Task | None = None
 
 
 @app.on_event("startup")
 async def start_kis_polling():
-    # kis_app_key가 없는 환경(테스트 등)에서는 폴링을 아예 켜지 않는다.
-    if not settings.enable_background_polling or not settings.kis_app_key:
+    global _polling_task
+    if not settings.kis_app_key or not settings.kis_app_secret:
         return
-    asyncio.create_task(run_polling_loop(settings.watch_symbols, settings.poll_interval_sec))
+    if _polling_task is None or _polling_task.done():
+        # 구독이 없으면 KIS/LLM을 호출하지 않는 동적 감시 루프다.
+        _polling_task = asyncio.create_task(run_polling_loop(settings.poll_interval_sec))
 
 
-@app.on_event("startup")
-async def start_news_polling():
-    if not settings.enable_background_polling or not settings.newsapi_api_key:
-        return
-    asyncio.create_task(run_news_polling_loop(settings.watch_symbols, settings.news_poll_interval_sec))
+@app.on_event("shutdown")
+async def stop_kis_polling():
+    global _polling_task
+    if _polling_task is not None:
+        _polling_task.cancel()
+        with suppress(asyncio.CancelledError):
+            await _polling_task
+        _polling_task = None
 
 
 @app.get("/health")
 async def health():
     return {"status": "ok"}
-
-
-
-

@@ -25,6 +25,11 @@ public class ScenarioFinalResultController : MonoBehaviour
     [SerializeField]
     private GameObject finalResultPanel;
 
+    [Header("스크롤 위치 초기화")]
+    [Tooltip("최종 결과가 열릴 때 맨 위/맨 왼쪽으로 이동할 Scroll Rect 오브젝트를 연결하세요.")]
+    [SerializeField]
+    private ScrollRect[] scrollRectsToReset;
+
     [Header("버튼")]
     [SerializeField]
     private Button returnToListButton;
@@ -167,6 +172,10 @@ public class ScenarioFinalResultController : MonoBehaviour
             finalResultPanel.SetActive(true);
             finalResultPanel.transform.SetAsLastSibling();
         }
+
+        StartCoroutine(
+            ScenarioScrollUtility.ResetToStart(scrollRectsToReset)
+        );
 
         SetMessage("");
     }

@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +30,8 @@ public class StockListItemButton : MonoBehaviour
         StockRankType rankType,
         bool isSearchResult,
         StockCandlestickLoader loader,
-        StockPanelManager panelManager
+        StockPanelManager panelManager,
+        bool hasSearchQuote = false
     )
     {
         if (data == null)
@@ -66,9 +67,13 @@ public class StockListItemButton : MonoBehaviour
         if (trade_value != null)
         {
             trade_value.text = isSearchResult
-                ? MakeSearchResultText(data)
+                ? MakeSearchResultText(data, hasSearchQuote)
                 : MakeRankValueText(data, rankType);
         }
+
+        // 검색 API의 가격 캐시만으로 등락률까지 수신했다고 판단하지 않는다.
+        if (isSearchResult && !hasSearchQuote)
+            ShowPriceLoading();
 
         if (button != null)
         {
@@ -78,9 +83,25 @@ public class StockListItemButton : MonoBehaviour
     }
 
 
-    private string MakeSearchResultText(StockRankItem data)
+    public void ShowPriceLoading()
     {
-        if (data.change_rate != 0f)
+        if (volumeText != null)
+            volumeText.text = "현재가\n(로딩중..)";
+        if (trade_value != null)
+            trade_value.text = "등락률\n(로딩중..)";
+    }
+
+    public void ShowPriceUnavailable()
+    {
+        if (volumeText != null)
+            volumeText.text = "현재가\n(조회 실패)";
+        if (trade_value != null)
+            trade_value.text = "등락률\n(조회 실패)";
+    }
+
+    private string MakeSearchResultText(StockRankItem data, bool hasSearchQuote)
+    {
+        if (hasSearchQuote || data.change_rate != 0f)
         {
             return
                 "등락률\n" +

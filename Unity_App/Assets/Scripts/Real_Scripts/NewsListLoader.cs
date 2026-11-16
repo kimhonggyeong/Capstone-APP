@@ -44,6 +44,8 @@ public class NewsListLoader : MonoBehaviour
     private int nextStart = 1;
     private int requestGeneration;
 
+    public bool IsLoading => isLoading;
+
     private bool isLoading;
     private bool hasMore;
 
@@ -173,6 +175,7 @@ public class NewsListLoader : MonoBehaviour
                 UnityWebRequest.Get(url)
         )
         {
+            request.timeout = 30;
             yield return request.SendWebRequest();
 
             if (
@@ -180,7 +183,6 @@ public class NewsListLoader : MonoBehaviour
                 symbol != currentSymbol
             )
             {
-                FinishLoading();
                 yield break;
             }
 

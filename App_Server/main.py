@@ -12,7 +12,7 @@ from services.core.main import app  # noqa: E402
 from services.legal_chatbot.main import app as legal_chatbot_app  # noqa: E402
 from services.market_reaction.api.routes import router as market_reaction_router  # noqa: E402
 from services.market_reaction.main import app as market_reaction_app  # noqa: E402
-from services.ramen.api.routes import analyze, compare, history, judgment  # noqa: E402
+from services.ramen.api.routes import analyze, compare, history, judgment, watch  # noqa: E402
 from services.ramen.main import app as ramen_app  # noqa: E402
 from services.scenario.main import app as scenario_app  # noqa: E402
 from services.scenario.routes import mypage as scenario_mypage  # noqa: E402
@@ -60,9 +60,10 @@ app.include_router(scenario_mypage.router)
 
 # Preserve the original AI judgment and market-reaction URLs used by Unity.
 app.include_router(judgment.router)
-app.include_router(compare.router)
+app.include_router(compare.legacy_router)
 app.include_router(history.router)
 app.include_router(analyze.router)
+app.include_router(watch.router)
 app.include_router(market_reaction_router)
 
 

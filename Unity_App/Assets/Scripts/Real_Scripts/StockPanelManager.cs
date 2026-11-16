@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,6 +54,8 @@ public class StockPanelManager : MonoBehaviour
     public GameObject HistoryButtonImage;
     public GameObject CompareButtonImage;
 
+    private AiComparePanelController aiComparePanelController;
+
     [Header("Loaders")]
     public StockCandlestickLoader stockLoader;
     public OrderBookLoader orderBookLoader;
@@ -87,6 +89,24 @@ public class StockPanelManager : MonoBehaviour
 
     [Header("Loading")]
     public float minimumLoadingTime = 0.3f;
+
+    [Min(1f)]
+    [Tooltip("최초 데이터 수신을 기다리는 최대 시간(초)")]
+    public float dataLoadingTimeout = 30f;
+
+    [Header("메인 호가 스크롤")]
+    [Tooltip("OrderBook 안에서 사용하는 Bid_Ask_List의 Scroll Rect를 연결하세요.")]
+    public ScrollRect orderBookScrollRect;
+
+    private enum RealDataTab
+    {
+        OrderBook,
+        Execution,
+        Info,
+        News
+    }
+
+    private int tabLoadGeneration;
 
     private string currentSymbol = "";
     private bool buySellCheckPanelOpened = false;
@@ -188,6 +208,8 @@ public class StockPanelManager : MonoBehaviour
         string symbol
     )
     {
+        CancelPendingTabLoad();
+
         currentSymbol =
             symbol != null
                 ? symbol.Trim()
@@ -443,6 +465,8 @@ public class StockPanelManager : MonoBehaviour
     {
         if (IsOrderBusy) return;
         CloseTradeConfirmation();
+        if (orderBookLoader != null)
+            orderBookLoader.StopTradeOrderBook();
         left1.SetActive(false);
         left2.SetActive(true);
         right1.SetActive(false);
@@ -461,42 +485,44 @@ public class StockPanelManager : MonoBehaviour
     }
 
 
-    public IEnumerator ShowListAfterLoading()
+    // 검색에서는 공용 로딩창 없이 결과 목록을 즉시 연다.
+    public void ShowListWithoutLoading()
     {
-        ShowLoading();
+        PrepareStockList();
+        SetActiveSafe(stockListPanel, true);
+        HideLoading();
+    }
+
+
+    private int PrepareStockList()
+    {
+        int generation = CancelPendingTabLoad();
 
         if (stockLoader != null)
-        {
             stockLoader.StopChartRequests();
-        }
 
         StopOrderBook();
         StopExecutions();
         StopNews();
-
         HideAllRealChildPanels();
-
-        SetActiveSafe(
-            realSimulationPanel,
-            false
-        );
-
-        SetActiveSafe(
-            stockListPanel,
-            false
-        );
-
+        SetActiveSafe(realSimulationPanel, false);
         ClearRealButtonVisuals();
+        return generation;
+    }
 
-        yield return new WaitForSeconds(
-            minimumLoadingTime
-        );
 
-        SetActiveSafe(
-            stockListPanel,
-            true
-        );
+    public IEnumerator ShowListAfterLoading()
+    {
+        int generation = PrepareStockList();
+        ShowLoading();
+        SetActiveSafe(stockListPanel, false);
 
+        yield return new WaitForSeconds(minimumLoadingTime);
+
+        if (generation != tabLoadGeneration)
+            yield break;
+
+        SetActiveSafe(stockListPanel, true);
         HideLoading();
     }
 
@@ -508,26 +534,21 @@ public class StockPanelManager : MonoBehaviour
     public void OnClickBackToChart()
     {
         if (!HasCurrentSymbol())
-        {
             return;
-        }
 
+        int generation = CancelPendingTabLoad();
         ShowLoading();
-
         StopOrderBook();
         StopExecutions();
         StopNews();
-
         HideAllRealChildPanels();
         ClearRealButtonVisuals();
 
-        StartCoroutine(
-            ShowChartTabAfterLoading()
-        );
+        StartCoroutine(ShowChartTabAfterLoading(generation));
     }
 
 
-    private IEnumerator ShowChartTabAfterLoading()
+    private IEnumerator ShowChartTabAfterLoading(int generation)
     {
         if (stockLoader != null)
         {
@@ -537,6 +558,9 @@ public class StockPanelManager : MonoBehaviour
         yield return new WaitForSeconds(
             minimumLoadingTime
         );
+
+        if (generation != tabLoadGeneration)
+            yield break;
 
         SetActiveSafe(
             realSimulationPanel,
@@ -581,469 +605,226 @@ public class StockPanelManager : MonoBehaviour
      */
     public IEnumerator ShowChartAfterLoading()
     {
-        ShowLoading();
+        int generation = BeginDataTabLoad();
 
-        StopOrderBook();
-        StopExecutions();
-        StopNews();
-
-        SetActiveSafe(
-            stockListPanel,
-            false
+        yield return ShowDataTabAfterLoading(
+            RealDataTab.OrderBook,
+            generation,
+            resetSimulationScroll: true
         );
-
-        SetActiveSafe(
-            realSimulationPanel,
-            true
-        );
-
-
-        SetActiveSafe(
-            orderBookPanel,
-            true
-        );
-
-        SetActiveSafe(
-            executionPanel,
-            false
-        );
-
-        SetActiveSafe(
-            infoPanel,
-            false
-        );
-
-        SetActiveSafe(
-            newsPanel,
-            false
-        );
-
-        ClearRealButtonVisuals();
-
-        yield return new WaitForSeconds(
-            minimumLoadingTime
-        );
-
-        SetActiveSafe(
-            realSimulationPanel,
-            true
-        );
-
-        if (orderBookLoader != null)
-        {
-            orderBookLoader.ShowOrderBook(currentSymbol);
-        }
-
-        SetRealButtonVisuals(
-            showChart: false,
-            showOrderBook: true,
-            showExecution: false,
-            showInfo: false,
-            showNews: false
-        );
-
-        HideLoading();
     }
+
+    private void ResetSimulationScrollPosition()
+    {
+        if (realSimulationPanel == null)
+            return;
+
+        // The scene also has a list with this name in another panel.
+        Transform list = realSimulationPanel.transform.Find("Real_simulation_List");
+        ScrollRect scrollRect = list != null ? list.GetComponent<ScrollRect>() : null;
+        if (scrollRect == null || scrollRect.content == null)
+            return;
+
+        Canvas.ForceUpdateCanvases();
+        scrollRect.StopMovement();
+
+        Vector2 position = scrollRect.content.anchoredPosition;
+        position.y = 0f;
+        scrollRect.content.anchoredPosition = position;
+    }
+
     // =========================================================
     // 호가 탭
     // =========================================================
 
     public void OnClickOrderBook()
     {
-        if (!HasCurrentSymbol())
-        {
-            return;
-        }
-
-        ShowLoading();
-
-        /*
-         * 차트 캔들 요청만 중지한다.
-         * 현재가 WebSocket은 유지한다.
-         */
-        if (stockLoader != null)
-        {
-            stockLoader.StopOnlyCandleRequests();
-        }
-
-        StopExecutions();
-        StopNews();
-
-        HideAllRealChildPanels();
-        ClearRealButtonVisuals();
-
-        StartCoroutine(
-            ShowOrderBookAfterLoading()
-        );
+        OpenDataTab(RealDataTab.OrderBook);
     }
-
-
-    private IEnumerator ShowOrderBookAfterLoading()
-    {
-        StopExecutions();
-        StopNews();
-
-        if (orderBookLoader != null)
-        {
-            orderBookLoader.ShowOrderBook(
-                currentSymbol
-            );
-        }
-        else
-        {
-            Debug.LogError(
-                "orderBookLoader가 연결되지 않았습니다."
-            );
-        }
-
-        yield return new WaitForSeconds(
-            minimumLoadingTime
-        );
-
-        SetActiveSafe(
-            realSimulationPanel,
-            true
-        );
-
-        //SetActiveSafe(
-        //    chartPanel,
-        //    false
-        //);
-
-        SetActiveSafe(
-            orderBookPanel,
-            true
-        );
-
-        SetActiveSafe(
-            executionPanel,
-            false
-        );
-
-        SetActiveSafe(
-            infoPanel,
-            false
-        );
-
-        SetActiveSafe(
-            newsPanel,
-            false
-        );
-
-        SetRealButtonVisuals(
-            showChart: false,
-            showOrderBook: true,
-            showExecution: false,
-            showInfo: false,
-            showNews: false
-        );
-
-        HideLoading();
-    }
-
-
-    // =========================================================
-    // 체결 탭
-    // =========================================================
 
     public void OnClickExecution()
     {
-        if (!HasCurrentSymbol())
-        {
-            return;
-        }
-
-        ShowLoading();
-
-        /*
-         * 차트 캔들 요청만 중지한다.
-         * 현재가 WebSocket은 유지한다.
-         */
-        if (stockLoader != null)
-        {
-            stockLoader.StopOnlyCandleRequests();
-        }
-
-        StopOrderBook();
-        StopExecutions();
-        StopNews();
-
-        HideAllRealChildPanels();
-        ClearRealButtonVisuals();
-
-        StartCoroutine(
-            ShowExecutionAfterLoading()
-        );
+        OpenDataTab(RealDataTab.Execution);
     }
-
-
-    private IEnumerator ShowExecutionAfterLoading()
-    {
-        if (executionListLoader == null)
-        {
-            Debug.LogError(
-                "executionListLoader가 연결되지 않았습니다."
-            );
-
-            HideLoading();
-            yield break;
-        }
-
-        /*
-         * ExecutionListLoader가 executionPanel에 붙어 있다면
-         * 먼저 패널을 활성화한 후 ShowExecutions를 호출해야
-         * OnDisable과 충돌하지 않는다.
-         */
-        SetActiveSafe(
-            realSimulationPanel,
-            true
-        );
-
-        //SetActiveSafe(
-        //    chartPanel,
-        //    false
-        //);
-
-        SetActiveSafe(
-            orderBookPanel,
-            false
-        );
-
-        SetActiveSafe(
-            executionPanel,
-            true
-        );
-
-        SetActiveSafe(
-            infoPanel,
-            false
-        );
-
-        SetActiveSafe(
-            newsPanel,
-            false
-        );
-
-        executionListLoader.ShowExecutions(
-            currentSymbol
-        );
-
-        yield return new WaitForSeconds(
-            minimumLoadingTime
-        );
-
-        SetRealButtonVisuals(
-            showChart: false,
-            showOrderBook: false,
-            showExecution: true,
-            showInfo: false,
-            showNews: false
-        );
-
-        HideLoading();
-    }
-
-
-    // =========================================================
-    // 종목 정보 탭
-    // =========================================================
 
     public void OnClickInfo()
     {
-        if (!HasCurrentSymbol())
-        {
-            return;
-        }
-
-        ShowLoading();
-
-        if (stockLoader != null)
-        {
-            stockLoader.StopOnlyCandleRequests();
-        }
-
-        StopOrderBook();
-        StopExecutions();
-        StopNews();
-
-        HideAllRealChildPanels();
-        ClearRealButtonVisuals();
-
-        if (detailLoader != null)
-        {
-            detailLoader.LoadDetail(
-                currentSymbol
-            );
-        }
-        else
-        {
-            Debug.LogError(
-                "detailLoader가 연결되지 않았습니다."
-            );
-        }
-
-        StartCoroutine(
-            ShowInfoAfterLoading()
-        );
+        OpenDataTab(RealDataTab.Info);
     }
-
-
-    private IEnumerator ShowInfoAfterLoading()
-    {
-        yield return new WaitForSeconds(
-            minimumLoadingTime
-        );
-
-        SetActiveSafe(
-            realSimulationPanel,
-            true
-        );
-
-        //SetActiveSafe(
-        //    chartPanel,
-        //    false
-        //);
-
-        SetActiveSafe(
-            orderBookPanel,
-            false
-        );
-
-        SetActiveSafe(
-            executionPanel,
-            false
-        );
-
-        SetActiveSafe(
-            infoPanel,
-            true
-        );
-
-        SetActiveSafe(
-            newsPanel,
-            false
-        );
-
-        SetRealButtonVisuals(
-            showChart: false,
-            showOrderBook: false,
-            showExecution: false,
-            showInfo: true,
-            showNews: false
-        );
-
-        HideLoading();
-    }
-
-
-    // =========================================================
-    // 뉴스 탭
-    // =========================================================
 
     public void OnClickNews()
     {
-        if (!HasCurrentSymbol())
-        {
-            return;
-        }
+        OpenDataTab(RealDataTab.News);
+    }
+
+    private int CancelPendingTabLoad()
+    {
+        tabLoadGeneration++;
+
+        if (detailLoader != null)
+            detailLoader.StopDetail();
+
+        return tabLoadGeneration;
+    }
+
+    private int BeginDataTabLoad()
+    {
+        int generation = CancelPendingTabLoad();
 
         ShowLoading();
-
-        /*
-         * 뉴스 탭에서는 차트 캔들 요청만 중지한다.
-         * 상단 현재가를 계속 표시해야 한다면
-         * 가격 WebSocket은 유지한다.
-         */
-        if (stockLoader != null)
-        {
-            stockLoader.StopOnlyCandleRequests();
-        }
-
         StopOrderBook();
         StopExecutions();
         StopNews();
-
         HideAllRealChildPanels();
         ClearRealButtonVisuals();
 
-        StartCoroutine(
-            ShowNewsAfterLoading()
-        );
+        SetActiveSafe(stockListPanel, false);
+        SetActiveSafe(realSimulationPanel, true);
+
+        return generation;
     }
 
-
-    private IEnumerator ShowNewsAfterLoading()
+    private void OpenDataTab(RealDataTab tab)
     {
-        if (newsListLoader == null)
-        {
-            Debug.LogError(
-                "newsListLoader가 연결되지 않았습니다."
-            );
+        if (!HasCurrentSymbol())
+            return;
 
-            HideLoading();
+        // 현재가 WebSocket을 유지하면서 캔들 요청만 중지합니다.
+        if (stockLoader != null)
+            stockLoader.StopOnlyCandleRequests();
+
+        int generation = BeginDataTabLoad();
+        StartCoroutine(ShowDataTabAfterLoading(tab, generation));
+    }
+
+    private IEnumerator ShowDataTabAfterLoading(
+        RealDataTab tab,
+        int generation,
+        bool resetSimulationScroll = false)
+    {
+        if (generation != tabLoadGeneration)
             yield break;
+
+        SetActiveSafe(orderBookPanel, tab == RealDataTab.OrderBook);
+        SetActiveSafe(executionPanel, tab == RealDataTab.Execution);
+        SetActiveSafe(infoPanel, tab == RealDataTab.Info);
+        SetActiveSafe(newsPanel, tab == RealDataTab.News);
+
+        float startedAt = Time.realtimeSinceStartup;
+        System.Func<bool> isLoading = null;
+        System.Action cancelLoad = null;
+
+        // 비활성 패널에 붙은 Loader도 요청을 시작할 수 있도록 먼저 표시합니다.
+        switch (tab)
+        {
+            case RealDataTab.OrderBook:
+                if (orderBookLoader != null)
+                {
+                    orderBookLoader.ShowOrderBook(currentSymbol);
+                    isLoading = () => orderBookLoader != null && orderBookLoader.IsLoading;
+                    cancelLoad = StopOrderBook;
+                }
+                break;
+
+            case RealDataTab.Execution:
+                if (executionListLoader != null)
+                {
+                    executionListLoader.ShowExecutions(currentSymbol);
+                    isLoading = () => executionListLoader != null && executionListLoader.IsLoading;
+                    cancelLoad = StopExecutions;
+                }
+                break;
+
+            case RealDataTab.Info:
+                if (detailLoader != null)
+                {
+                    detailLoader.LoadDetail(currentSymbol);
+                    isLoading = () => detailLoader != null && detailLoader.IsLoading;
+                    cancelLoad = detailLoader.StopDetail;
+                }
+                break;
+
+            case RealDataTab.News:
+                if (newsListLoader != null)
+                {
+                    newsListLoader.ShowNews(currentSymbol);
+                    isLoading = () => newsListLoader != null && newsListLoader.IsLoading;
+                    cancelLoad = StopNews;
+                }
+                break;
         }
 
-        /*
-         * NewsListLoader가 NewsPanel에 붙어 있을 수 있으므로
-         * 패널을 먼저 활성화한다.
-         */
-        SetActiveSafe(
-            realSimulationPanel,
-            true
-        );
+        if (isLoading == null)
+            Debug.LogError($"[탭 로딩] {tab} Loader가 연결되지 않았습니다.", this);
 
-        //SetActiveSafe(
-        //    chartPanel,
-        //    false
-        //);
+        float minimumSeconds = Mathf.Max(0f, minimumLoadingTime);
+        float timeoutSeconds = Mathf.Max(minimumSeconds, Mathf.Max(1f, dataLoadingTimeout));
 
-        SetActiveSafe(
-            orderBookPanel,
-            false
-        );
+        while (generation == tabLoadGeneration)
+        {
+            float elapsed = Time.realtimeSinceStartup - startedAt;
+            bool waitingForData = isLoading != null && isLoading();
 
-        SetActiveSafe(
-            executionPanel,
-            false
-        );
+            if (!waitingForData && elapsed >= minimumSeconds)
+                break;
 
-        SetActiveSafe(
-            infoPanel,
-            false
-        );
+            if (waitingForData && elapsed >= timeoutSeconds)
+            {
+                cancelLoad?.Invoke();
+                Debug.LogError($"[탭 로딩] {tab} 데이터 수신 시간이 초과되었습니다.", this);
+                break;
+            }
 
-        SetActiveSafe(
-            newsPanel,
-            true
-        );
+            yield return null;
+        }
 
-        /*
-         * 현재 선택한 종목 코드를 전달한다.
-         *
-         * 005930 → 삼성전자 뉴스
-         * 000660 → SK하이닉스 뉴스
-         * 035420 → NAVER 뉴스
-         */
-        newsListLoader.ShowNews(
-            currentSymbol
-        );
+        if (generation != tabLoadGeneration)
+            yield break;
 
-        yield return new WaitForSeconds(
-            minimumLoadingTime
-        );
+        if (tab == RealDataTab.OrderBook && orderBookLoader != null &&
+            !string.IsNullOrEmpty(orderBookLoader.LoadError))
+        {
+            Debug.LogWarning(orderBookLoader.LoadError, this);
+        }
+
+        if (tab == RealDataTab.Info && detailLoader != null &&
+            !string.IsNullOrEmpty(detailLoader.LoadError))
+        {
+            Debug.LogWarning(detailLoader.LoadError, this);
+        }
+
+        // 생성/삭제된 Row와 텍스트의 크기가 반영된 뒤 로딩을 닫습니다.
+        yield return null;
+
+        if (generation != tabLoadGeneration)
+            yield break;
+
+        Canvas.ForceUpdateCanvases();
+
+        if (resetSimulationScroll)
+            ResetSimulationScrollPosition();
+
+        CenterOrderBookScroll();
 
         SetRealButtonVisuals(
             showChart: false,
-            showOrderBook: false,
-            showExecution: false,
-            showInfo: false,
-            showNews: true
+            showOrderBook: tab == RealDataTab.OrderBook,
+            showExecution: tab == RealDataTab.Execution,
+            showInfo: tab == RealDataTab.Info,
+            showNews: tab == RealDataTab.News
         );
 
         HideLoading();
     }
 
+    private void CenterOrderBookScroll()
+    {
+        if (orderBookScrollRect == null || orderBookScrollRect.content == null)
+            return;
+
+        orderBookScrollRect.StopMovement();
+        orderBookScrollRect.verticalNormalizedPosition = 0.5f;
+    }
 
     // =========================================================
     // 실시간 탭 버튼 색상
@@ -1462,6 +1243,25 @@ public class StockPanelManager : MonoBehaviour
             CompareButtonImage,
             showCompare
         );
+
+        ResetAiCompareSelectionColors();
+    }
+
+    private void ResetAiCompareSelectionColors()
+    {
+        if (Compare == null)
+            return;
+
+        if (aiComparePanelController == null || aiComparePanelController.selectorPanel != Compare)
+        {
+            aiComparePanelController = System.Array.Find(
+                FindObjectsByType<AiComparePanelController>(FindObjectsInactive.Include, FindObjectsSortMode.None),
+                controller => controller.selectorPanel == Compare
+            );
+        }
+
+        if (aiComparePanelController != null)
+            aiComparePanelController.ResetSelectionColors();
     }
 
 
@@ -1471,6 +1271,8 @@ public class StockPanelManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        CancelPendingTabLoad();
+
         /*
          * 씬 전환 또는 오브젝트 삭제 시
          * 열려 있던 통신과 목록을 안전하게 정리한다.

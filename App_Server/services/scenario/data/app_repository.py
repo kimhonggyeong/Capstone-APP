@@ -188,6 +188,12 @@ class AppRepository:
             upsert=False,
         )
 
+    def get_quiz_progress(self, user_id: str) -> dict | None:
+        return self.store.find_one("quiz_progress", {"user_id": user_id})
+
+    def record_quiz_progress_event(self, user_id: str, **event: Any) -> dict:
+        return self.store.record_quiz_progress_event(user_id, **event)
+
     def insert_order(self, order: dict) -> None:
         self.store.insert_one("orders", order)
 

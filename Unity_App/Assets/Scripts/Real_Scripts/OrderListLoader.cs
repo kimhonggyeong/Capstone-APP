@@ -25,6 +25,7 @@ public class OrderListLoader : MonoBehaviour
     public TMP_Text selectedOrderText;
     [Header("선택한 주문 상세: 각각 값 텍스트 연결")]
     public TMP_Text selectedSideText;
+    public Image selectedSideBackground;
     public TMP_Text selectedStockNameText;
     public TMP_Text selectedOrderIdText;
     public TMP_Text selectedOrderPriceText;
@@ -106,9 +107,33 @@ public class OrderListLoader : MonoBehaviour
         if (stockLoader != null) stockLoader.ReportTradeMessage(value);
         else Debug.Log("[OrderList] " + value);
     }
-    public void FilterAll() { sideFilter = ""; Refresh(); }
-    public void FilterBuy() { sideFilter = "BUY"; Refresh(); }
-    public void FilterSell() { sideFilter = "SELL"; Refresh(); }
+    public void FilterAll() { SetSideFilter(""); }
+    public void FilterBuy() { SetSideFilter("BUY"); }
+    public void FilterSell() { SetSideFilter("SELL"); }
+
+    void SetSideFilter(string side)
+    {
+        sideFilter = side;
+
+        foreach (OrderRowUI row in rows)
+        {
+            if (row != null)
+                row.gameObject.SetActive(MatchesSideFilter(row.Order));
+        }
+
+        if (SelectedOrder != null && !MatchesSideFilter(SelectedOrder))
+        {
+            SelectedOrder = null;
+            ClearSelectedDetails();
+        }
+
+        Refresh();
+    }
+
+    bool MatchesSideFilter(TradeOrderData order)
+    {
+        return order != null && (sideFilter == "" || order.side == sideFilter);
+    }
     public void Refresh()
     {
         if (IsRequesting || refreshing) { refreshQueued = true; return; }
@@ -142,6 +167,9 @@ public class OrderListLoader : MonoBehaviour
             SelectedOrder = null;
             foreach (var order in data.data ?? Array.Empty<TradeOrderData>())
             {
+                if (!MatchesSideFilter(order))
+                    continue;
+
                 var row = Instantiate(rowPrefab, content);
                 row.Bind(order, SelectOrder, o => { SelectOrder(o); OpenAmendConfirmation(); },
                     o => { SelectOrder(o); OpenCancelConfirmation(); });
@@ -152,7 +180,7 @@ public class OrderListLoader : MonoBehaviour
         });
         refreshing = false;
     }
-    public void SelectOrder(TradeOrderData order) { if (!IsRequesting && editingOrder == null) Select(order, true); }
+    public void SelectOrder(TradeOrderData order) { if (!IsRequesting && editingOrder == null && MatchesSideFilter(order)) Select(order, true); }
     void Select(TradeOrderData order, bool fillInputs)
     {
         SelectedOrder = order;
@@ -163,7 +191,7 @@ public class OrderListLoader : MonoBehaviour
             $"미체결수량 {Math.Max(0, order.quantity - order.filledQuantity):N0}주\n" +
             $"주문유형 {(order.orderType == "LIMIT" ? "지정가" : "시장가")}\n주문시각 {OrderTimeFormat.Korea(order.createdAt)}";
         SetText(selectedSideText, order.SideLabel);
-        if (selectedSideText != null) selectedSideText.color = order.side == "BUY" ? Color.red : Color.blue;
+        OrderRowUI.ApplySideColors(selectedSideText, selectedSideBackground, order.side);
         SetText(selectedStockNameText, order.name + " (" + order.symbol + ")");
         SetText(selectedOrderIdText, order._id);
         SetText(selectedOrderPriceText, $"{order.orderPrice:N0}원");
@@ -196,6 +224,7 @@ public class OrderListLoader : MonoBehaviour
             selectedOrderPriceText, selectedOrderQuantityText, selectedRemainingQuantityText,
             selectedOrderStatusText, selectedOrderTypeText, selectedOrderTimeText, selectedValidityText })
             SetText(text, "-");
+        OrderRowUI.ApplySideColors(selectedSideText, selectedSideBackground, null);
         quoteSymbol = null;
         nextQuoteRefresh = 0;
         ClearQuoteDetails();

@@ -35,4 +35,3 @@ def call_gpt4o_text(system_prompt: str, user_prompt: str) -> str:
         ],
     )
     return response.choices[0].message.content
-

@@ -36,4 +36,3 @@ def call_ollama_json(system_prompt: str, user_prompt: str) -> str:
 
 def call_ollama_text(system_prompt: str, user_prompt: str) -> str:
     return _chat(system_prompt, user_prompt, json_mode=False)
-

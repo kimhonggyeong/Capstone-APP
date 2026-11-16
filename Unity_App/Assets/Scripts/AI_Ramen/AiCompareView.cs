@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,8 +27,9 @@ public class AiCompareView : MonoBehaviour
         if (aiJudgmentText != null) aiJudgmentText.text = data.ai_judge ?? "-";
 
         // 화면에 고정된 "신뢰도" 라벨이 있으므로 값만 표시한다.
+        float? confidence = data.GetConfidence(latest);
         if (confidenceText != null)
-            confidenceText.text = latest != null ? $"{latest.confidence:0.#}%" : "";
+            confidenceText.text = confidence.HasValue ? $"{confidence.Value:0.#}%" : "";
 
         if (explanationText != null) explanationText.text = data.explanation ?? "";
         if (directFactorsText != null)

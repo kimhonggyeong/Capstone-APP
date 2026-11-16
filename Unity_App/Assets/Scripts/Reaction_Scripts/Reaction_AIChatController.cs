@@ -127,10 +127,7 @@ public class Reaction_AIChatController : MonoBehaviour
     {
         string text = inputField != null ? inputField.text.Trim() : "";
         if (stockLoader == null || string.IsNullOrWhiteSpace(stockLoader.symbol) || text.Length < 10) yield break;
-        requesting = true;
         resultReady = false;
-        if (analysisLoadingObject != null) analysisLoadingObject.SetActive(true);
-        if (panelManager != null) panelManager.ShowLoadingOnly();
         string name = stockLoader.stockNameText != null ? stockLoader.stockNameText.text : stockLoader.symbol;
         var body = new SimulationRequestDto {
             user_id = AuthManager.Instance != null && !string.IsNullOrWhiteSpace(AuthManager.Instance.UserId) ? AuthManager.Instance.UserId : "unity_guest",
@@ -140,9 +137,15 @@ public class Reaction_AIChatController : MonoBehaviour
         {
             request.timeout = requestTimeoutSeconds; request.uploadHandler = new UploadHandlerRaw(bytes);
             request.downloadHandler = new DownloadHandlerBuffer(); request.SetRequestHeader("Content-Type", "application/json");
-            yield return request.SendWebRequest(); requesting = false;
-            if (analysisLoadingObject != null) analysisLoadingObject.SetActive(false);
-            if (panelManager != null) panelManager.HideLoading();
+            SetRequesting(true);
+            try
+            {
+                yield return request.SendWebRequest();
+            }
+            finally
+            {
+                SetRequesting(false);
+            }
             if (request.result != UnityWebRequest.Result.Success)
             {
                 string message = ReadError(request.downloadHandler.text, request.error);
@@ -183,6 +186,12 @@ public class Reaction_AIChatController : MonoBehaviour
             }
             SetValidation("분석이 완료되었습니다. 결과 보러가기를 눌러 주세요.", ValidationTone.Success);
         }
+    }
+    void SetRequesting(bool value)
+    {
+        requesting = value;
+        if (analysisLoadingObject != null) analysisLoadingObject.SetActive(value);
+        if (panelManager != null) panelManager.SetAnalysisLoading(value);
     }
     string CurrentSignature()
     {

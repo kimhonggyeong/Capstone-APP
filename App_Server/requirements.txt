@@ -16,3 +16,4 @@ pinecone>=5,<8
 faiss-cpu==1.9.0
 numpy==1.26.4
 beautifulsoup4==4.12.3
+pytest==8.3.3

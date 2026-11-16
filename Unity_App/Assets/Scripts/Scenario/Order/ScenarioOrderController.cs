@@ -23,6 +23,8 @@ public class ScenarioOrderController : MonoBehaviour
     [SerializeField] private Button sellButton;
     [SerializeField] private TMP_Text buyText;
     [SerializeField] private TMP_Text sellText;
+    [SerializeField] private GameObject buySelectionImage;
+    [SerializeField] private GameObject sellSelectionImage;
 
     [SerializeField]
     private Color selectedColor =
@@ -271,6 +273,12 @@ public class ScenarioOrderController : MonoBehaviour
             sellText,
             isBuy ? normalColor : selectedColor
         );
+
+        if (buySelectionImage != null)
+            buySelectionImage.SetActive(isBuy);
+
+        if (sellSelectionImage != null)
+            sellSelectionImage.SetActive(!isBuy);
 
         bool hasStock = HasStock();
         bool editable = !IsLocked();

@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -135,7 +135,8 @@ public class AiRamenController : MonoBehaviour
         SetBusy(true, "내 판단과 AI 판단을 비교하고 있어요...");
         var body = new AiCompareRequest { symbol = symbol, user_judge = userJudgment };
         yield return SendJson(UnityWebRequest.kHttpVerbPOST, "/judgment/compare", body,
-            json => ApplyComparison(JsonConvert.DeserializeObject<AiCompareResponse>(json), targetView));
+            json => ApplyComparison(JsonConvert.DeserializeObject<AiCompareResponse>(json), targetView,
+                analyzedSymbol == symbol ? latest : null));
         SetBusy(false, "");
     }
 
@@ -263,14 +264,15 @@ public class AiRamenController : MonoBehaviour
         }
     }
 
-    private void ApplyComparison(AiCompareResponse data, AiCompareView targetView)
+    private void ApplyComparison(AiCompareResponse data, AiCompareView targetView, AiJudgmentResponse referenceJudgment)
     {
         if (data == null) return;
-        if (targetView != null) targetView.SetData(data, latest);
+        if (targetView != null) targetView.SetData(data, referenceJudgment);
         if (userJudgmentText != null) userJudgmentText.text = data.user_judge ?? "-";
         if (aiJudgmentText != null) aiJudgmentText.text = data.ai_judge ?? "-";
-        if (compareConfidenceText != null && latest != null)
-            compareConfidenceText.text = $"신뢰도 {latest.confidence:0.#}%";
+        float? confidence = data.GetConfidence(referenceJudgment);
+        if (compareConfidenceText != null)
+            compareConfidenceText.text = confidence.HasValue ? $"신뢰도 {confidence.Value:0.#}%" : "";
         if (comparisonText != null) comparisonText.text = data.explanation ?? "";
         if (directFactorsText != null)
             directFactorsText.text = JoinFactors(data.highlighted_factors, "직접요인");

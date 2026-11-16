@@ -13,4 +13,3 @@ def get_client() -> AsyncIOMotorClient:
 
 def get_database():
     return get_client()[settings.mongo_db_name]
-

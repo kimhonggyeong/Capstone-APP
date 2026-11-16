@@ -79,6 +79,9 @@ public class FinanceQuizManager : MonoBehaviour
     private int wrongCount;
     private int currentStreak;
     private int bestStreak;
+    private bool answerChecked;
+    private bool sessionCompletionRecorded;
+    private string sessionUsername;
 
     private const int FailWrongLimit = 5;
     private const string AllOption = "전체";
@@ -145,6 +148,7 @@ public class FinanceQuizManager : MonoBehaviour
 
         allQuizzes.Clear();
         allQuizzes.AddRange(loadedData);
+        FinanceQuizProgressService.Instance.ConfigureTotalQuizCount(allQuizzes.Count);
 
         Debug.Log($"퀴즈 로드 완료: {allQuizzes.Count}개");
     }
@@ -230,6 +234,11 @@ public class FinanceQuizManager : MonoBehaviour
 
     private void StartQuiz(string category, string type)
     {
+        answerChecked = false;
+        sessionCompletionRecorded = false;
+        AuthManager auth = AuthManager.Instance;
+        sessionUsername = auth != null && auth.IsLoggedIn() ? auth.Username : "";
+        FinanceQuizProgressService.Instance.RefreshProgress();
         currentCategory = category;
         currentType = type;
         currentIndex = 0;
@@ -308,6 +317,7 @@ public class FinanceQuizManager : MonoBehaviour
 
         FinanceQuizData quiz = currentQuizzes[currentIndex];
 
+        answerChecked = false;
         selectedIndex = -1;
 
         SetText(categoryText, quiz.category);
@@ -395,6 +405,9 @@ public class FinanceQuizManager : MonoBehaviour
 
     public void CheckAnswer()
     {
+        if (answerChecked || currentQuizzes == null || currentIndex < 0
+            || currentIndex >= currentQuizzes.Count) return;
+
         if (selectedIndex < 0)
         {
             Debug.Log("보기를 먼저 선택해야 함.");
@@ -404,7 +417,9 @@ public class FinanceQuizManager : MonoBehaviour
         FinanceQuizData quiz = currentQuizzes[currentIndex];
 
         bool isCorrect = selectedIndex == quiz.answerIndex;
+        answerChecked = true;
         UpdateQuizResultStats(isCorrect);
+        FinanceQuizProgressService.Instance.RecordAnswer(quiz.id, isCorrect, sessionUsername);
 
         if (answerPanel != null)
             answerPanel.SetActive(true);
@@ -469,6 +484,7 @@ public class FinanceQuizManager : MonoBehaviour
 
     public void NextQuestion()
     {
+        if (!answerChecked || currentQuizzes == null || currentIndex >= currentQuizzes.Count) return;
         currentIndex++;
 
         if (currentIndex >= currentQuizzes.Count)
@@ -511,6 +527,12 @@ public class FinanceQuizManager : MonoBehaviour
         SetText(resultCorrectCountText, $"{correctCount}/{totalCount}");
         SetText(resultAccuracyText, $"{accuracy}%");
         SetText(resultBestStreakText, bestStreak.ToString());
+
+        if (!sessionCompletionRecorded && totalCount > 0 && currentIndex >= totalCount)
+        {
+            sessionCompletionRecorded = true;
+            FinanceQuizProgressService.Instance.RecordSessionCompleted(sessionUsername);
+        }
     }
 
 
@@ -675,6 +697,9 @@ public class FinanceQuizManager : MonoBehaviour
 
     public void ResetQuizState()
     {
+        answerChecked = false;
+        sessionCompletionRecorded = false;
+        sessionUsername = null;
         currentCategory = null;
         currentType = null;
         currentIndex = 0;

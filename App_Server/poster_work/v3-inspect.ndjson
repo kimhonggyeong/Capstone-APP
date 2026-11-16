@@ -1,0 +1,71 @@
+{"id":"sh/7edgbalw","name":"Google Shape;97;p13","kind":"textbox","text":"ANTITUDE\n시나리오 기반 AI 투자 판단 학습 플랫폼"}
+{"id":"sh/8j2xsbmd","name":"Google Shape;98;p13","kind":"textbox","text":" 윤정우, 이현우, 김홍경, 조현우, 주성준"}
+{"id":"sh/9kby1g3i","name":"Google Shape;99;p13","kind":"textbox","text":"투자 초보자가 뉴스와 공시의 핵심 요인·위험을 해석하고 자신의 판단 근거를 점검하도록 지원\n웹 브라우저와 모바일 앱에서 시나리오 실습과 실제 시세 기반 모의투자를 반복 학습\n판단 근거와 실제 매매 행동을 함께 평가하고 AI 해설을 통해 정보 해석·위험 인식 연습"}
+{"id":"sh/yhkza1wv","name":"Google Shape;100;p13","kind":"textbox","text":"실시간 모의투자: 종목 시세·차트·호가·뉴스를 확인하고 가상 주문·포트폴리오·수익률 관리\n시나리오 학습: 과거 금융 이벤트의 턴별 정보를 해석하고 매매 행동과 판단 근거 제출\n판단 과정 평가: 핵심 요인·위험 인식·행동 정합성을 평가하고 턴별 피드백·최종 코칭 제공\nAI 판단 비교: 매수·매도·관망의 근거와 신뢰도를 확인하고 내 판단 비교·히스토리 복습\n시장 반응 분석: 뉴스·공시·가정 상황을 입력하고 공시 RAG·투자자 관점으로 영향 분석\n기초 학습과 기록: 금융 용어·퀴즈, 시나리오 이어하기·재도전, 마이페이지의 자산·진행 관리"}
+{"id":"sh/jitg36dg","name":"Google Shape;101;p13","kind":"textbox","text":"클라이언트: React·TypeScript(웹), Unity·C#(앱) / 서버: Node.js·Express, Python·FastAPI\nAI·데이터: OpenAI·Gemini·Ollama, FAISS, KIS Open API, 뉴스·DART·SEC EDGAR\n운영: PC 웹 브라우저·Android 앱, MongoDB Atlas, 외부 AI API 및 로컬 LLM 연동"}
+{"id":"sh/kj2hcbel","name":"Google Shape;102;p13","kind":"textbox","text":"가상 자금과 과거 금융 이벤트를 활용하여 금전 손실 없이 투자 판단과 주문 과정을 반복 학습\n판단 근거와 실제 행동을 AI 피드백·판단 비교·히스토리로 점검하고 학습 내용을 복습\n웹·앱의 공통 학습 기능을 활용한 금융 입문 교육, 대학 실습 및 자기주도 학습 도구로 활용"}
+{"id":"im/4zulwbm5","name":"Google Shape;103;p13","kind":"image"}
+{"id":"sh/654ze1wr","name":"Google Shape;104;p13","kind":"textbox","text":"웹·앱 공통 기능 및 특징"}
+{"id":"im/q1w3yl4b","name":"Google Shape;105;p13","kind":"image"}
+{"id":"im/d4nmtg3m","name":"Google Shape;106;p13","kind":"image"}
+{"id":"sh/t8vy9gvi","name":"Google Shape;107;p13","kind":"textbox","text":"개발 배경 및 목표"}
+{"id":"im/761kfm5c","name":"Google Shape;108;p13","kind":"image"}
+{"id":"im/65s3mh4r","name":"Google Shape;109;p13","kind":"image"}
+{"id":"sh/pgzax4jm","name":"Google Shape;110;p13","kind":"textbox","text":"시스템 아키텍처"}
+{"id":"im/x0fq9ozy","name":"Google Shape;111;p13","kind":"image"}
+{"id":"im/axorytgn","name":"Google Shape;112;p13","kind":"image"}
+{"id":"sh/2d8rm9kb","name":"Google Shape;113;p13","kind":"textbox","text":"개발 및 운영 환경"}
+{"id":"im/ovm9wjyh","name":"Google Shape;114;p13","kind":"image"}
+{"id":"im/pwvq5oz2","name":"Google Shape;115;p13","kind":"image"}
+{"id":"sh/bi1sze1s","name":"Google Shape;116;p13","kind":"textbox","text":"기대효과 및 활용방안"}
+{"id":"im/nad83ehw","name":"Google Shape;117;p13","kind":"image"}
+{"id":"sh/tofapkju","name":"Google Shape;118;p13","kind":"shape"}
+{"id":"sh/sn69gf29","name":"Google Shape;119;p13","kind":"textbox","text":"신한대학교 소프트웨어융합학과"}
+{"id":"sh/kratwza5","name":"Google Shape;120;p13","kind":"shape"}
+{"id":"sh/lsja54ra","name":"Google Shape;121;p13","kind":"textbox","text":"ANTITUDE 서버"}
+{"id":"sh/ypsbupsz","name":"Google Shape;122;p13","kind":"shape"}
+{"id":"sh/jq1s3u9k","name":"Google Shape;123;p13","kind":"textbox","text":"서비스 API 서버"}
+{"id":"im/tkvqx87e","name":"Google Shape;124;p13","kind":"image"}
+{"id":"im/8jm9o3qt","name":"Google Shape;125;p13","kind":"image"}
+{"id":"sh/6tsbypsv","name":"Google Shape;126;p13","kind":"textbox","text":"Node.js · Express"}
+{"id":"sh/7u1s7u9g","name":"Google Shape;127;p13","kind":"textbox","text":"FastAPI"}
+{"id":"sh/gzut4jax","name":"Google Shape;128;p13","kind":"textbox","text":"인증·주문·자산 / 시나리오·AI 요청"}
+{"id":"sh/hk3adori","name":"Google Shape;129;p13","kind":"shape"}
+{"id":"sh/repw3it0","name":"Google Shape;130;p13","kind":"textbox","text":"AI 분석·학습 평가"}
+{"id":"im/bm9onu50","name":"Google Shape;131;p13","kind":"image"}
+{"id":"im/wni5wz6l","name":"Google Shape;132;p13","kind":"image"}
+{"id":"im/xor6p4n6","name":"Google Shape;133;p13","kind":"image"}
+{"id":"sh/3q5czyto","name":"Google Shape;134;p13","kind":"textbox","text":"Python"}
+{"id":"sh/2pwv6tc3","name":"Google Shape;135;p13","kind":"textbox","text":"Ollama"}
+{"id":"sh/psne18bu","name":"Google Shape;136;p13","kind":"textbox","text":"Gemini"}
+{"id":"sh/4red83u9","name":"Google Shape;137;p13","kind":"textbox","text":"공시 검색(RAG)·투자자 관점 분석\nAI 판단·규칙 기반 평가·AI 코칭"}
+{"id":"sh/m5wz2h8v","name":"Google Shape;144;p13","kind":"textbox","text":"웹·앱 클라이언트"}
+{"id":"sh/n65gvmp0","name":"Google Shape;145;p13","kind":"shape"}
+{"id":"sh/8reh4rql","name":"Google Shape;146;p13","kind":"textbox","text":"데이터베이스"}
+{"id":"im/4jy1wbax","name":"Google Shape;147;p13","kind":"image"}
+{"id":"sh/610ze18z","name":"Google Shape;148;p13","kind":"textbox","text":"MongoDB Atlas"}
+{"id":"sh/729076pk","name":"Google Shape;149;p13","kind":"textbox","text":"사용자·주문\n학습·판단 기록"}
+{"id":"sh/1wb2xkrm","name":"Google Shape;150;p13","kind":"shape"}
+{"id":"sh/gv214fa1","name":"Google Shape;151;p13","kind":"textbox","text":"외부 데이터 API"}
+{"id":"im/yxczyx8n","name":"Google Shape;152;p13","kind":"image"}
+{"id":"sh/utkj25sv","name":"Google Shape;153;p13","kind":"textbox","text":"KIS · 뉴스\nDART · SEC"}
+{"id":"sh/tsb2t0rq","name":"Google Shape;154;p13","kind":"textbox","text":"시세 · 뉴스 · 공시"}
+{"id":"sh/w3edon2h","name":"Google Shape;160;p13","kind":"shape"}
+{"id":"sh/x4nexs32","name":"Google Shape;161;p13","kind":"textbox","text":"저장·조회"}
+{"id":"sh/a1wvmx4r","name":"Google Shape;162;p13","kind":"shape"}
+{"id":"sh/v25wv2lc","name":"Google Shape;163;p13","kind":"textbox","text":"분석·평가"}
+{"id":"sh/8zudknml","name":"Google Shape;164;p13","kind":"shape"}
+{"id":"sh/90nuts36","name":"web-client","kind":"shape"}
+{"id":"im/rm9krq9o","name":"Google Shape;140;p13","kind":"image"}
+{"id":"sh/vupgzmpc","name":"Google Shape;141;p13","kind":"textbox","text":"웹 브라우저"}
+{"id":"sh/mdcvid4f","name":"web-tech-label","kind":"textbox","text":"React·TypeScript"}
+{"id":"sh/nelcril0","name":"mobile-client","kind":"shape"}
+{"id":"im/14b6h4fq","kind":"image"}
+{"id":"sh/lc3up83u","name":"mobile-title","kind":"textbox","text":"모바일 앱"}
+{"id":"sh/361wzy5w","name":"mobile-tech-label","kind":"textbox","text":"Unity·C#"}
+{"id":"sh/25sv6dob","kind":"shape"}
+{"id":"sh/p8je18n2","kind":"shape"}
+{"id":"sh/o7ad836h","kind":"shape"}
+{"id":"sh/balw3i5s","kind":"shape"}
+{"id":"sh/q9cfadon","name":"client-server-protocol","kind":"textbox","text":"HTTP(S)"}
+{"id":"sh/dc3e5sny","name":"client-server-api","kind":"textbox","text":"API 요청·응답"}

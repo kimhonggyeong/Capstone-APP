@@ -27,6 +27,11 @@ public class ScenarioTurnFeedbackController : MonoBehaviour
     [SerializeField]
     private GameObject saveCompletePanel;
 
+    [Header("스크롤 위치 초기화")]
+    [Tooltip("피드백 결과가 열릴 때 맨 위/맨 왼쪽으로 이동할 Scroll Rect 오브젝트를 연결하세요.")]
+    [SerializeField]
+    private ScrollRect[] scrollRectsToReset;
+
     [Header("로딩")]
     [SerializeField]
     private GameObject loadingPanel;
@@ -169,6 +174,10 @@ public class ScenarioTurnFeedbackController : MonoBehaviour
             feedbackPanel.transform.SetAsLastSibling();
         }
 
+        StartCoroutine(
+            ScenarioScrollUtility.ResetToStart(scrollRectsToReset)
+        );
+
         SetMessage("");
         SetButtonsInteractable(true);
     }
@@ -289,7 +298,7 @@ public class ScenarioTurnFeedbackController : MonoBehaviour
             SetText(
                 slot.scoreText,
                 unavailable
-                    ? "평가 불가"
+                    ? "-"
                     : $"{score:0.0}"
             );
 
@@ -303,10 +312,19 @@ public class ScenarioTurnFeedbackController : MonoBehaviour
                 slot.scoreSlider.SetValueWithoutNotify(
                     score
                 );
+
+                RectTransform fill = slot.scoreSlider.fillRect;
+                if (fill != null && fill.TryGetComponent(out Graphic fillGraphic))
+                    fillGraphic.enabled = !unavailable;
             }
 
             if (slot.stars != null)
-                slot.stars.SetScore(score);
+            {
+                if (!unavailable)
+                    slot.stars.SetScore(score);
+
+                slot.stars.gameObject.SetActive(!unavailable);
+            }
 
             SetText(
                 slot.reasonText,

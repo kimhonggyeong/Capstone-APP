@@ -29,6 +29,10 @@ public class TurnEndBasisController : MonoBehaviour
     [SerializeField]
     private RectTransform basisContent;
 
+    [Tooltip("근거 입력 패널이 열릴 때 맨 위/맨 왼쪽으로 이동할 Scroll Rect 오브젝트를 연결하세요.")]
+    [SerializeField]
+    private ScrollRect[] scrollRectsToReset;
+
     [Header("로딩")]
     [SerializeField]
     private GameObject loadingPanel;
@@ -152,18 +156,12 @@ public class TurnEndBasisController : MonoBehaviour
         CreateQuestionItems(scenario.turnData.questions);
         SetFreeTextQuestion(scenario.turnData.questions);
 
-        ResetContentY(basisContent);
-    }
-
-    private static void ResetContentY(RectTransform content)
-    {
-        if (content == null)
-            return;
-
-        Canvas.ForceUpdateCanvases();
-        Vector2 position = content.anchoredPosition;
-        position.y = 0f;
-        content.anchoredPosition = position;
+        StartCoroutine(
+            ScenarioScrollUtility.ResetToStart(
+                scrollRectsToReset,
+                basisContent
+            )
+        );
     }
 
     // Basis 패널의 제출하기 버튼에서 실행

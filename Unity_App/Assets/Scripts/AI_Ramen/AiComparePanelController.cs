@@ -44,6 +44,13 @@ public class AiComparePanelController : MonoBehaviour
         SelectBuy();
     }
 
+    public void ResetSelectionColors()
+    {
+        SetColor(buyButtonImage, unselectedColor);
+        SetColor(holdButtonImage, unselectedColor);
+        SetColor(sellButtonImage, unselectedColor);
+    }
+
     private void ShowSelection(bool buy, bool hold, bool sell)
     {
         // 선택 버튼 영역은 결과가 바뀌어도 계속 표시한다.

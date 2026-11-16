@@ -7,7 +7,7 @@ async def get_latest_judgment(symbol: str, user_id: str = "system") -> dict | No
     db = get_database()
     return await db[COLLECTION].find_one(
         {"symbol": symbol, "user_id": user_id},
-        sort=[("time", -1)],
+        sort=[("time", -1), ("_id", -1)],
     )
 
 
@@ -20,5 +20,5 @@ async def get_history(symbol: str, user_id: str, limit: int = 20) -> list[dict]:
     db = get_database()
     cursor = db[COLLECTION].find(
         {"symbol": symbol, "user_id": user_id}
-    ).sort("time", -1).limit(limit)
+    ).sort([("time", -1), ("_id", -1)]).limit(limit)
     return [doc async for doc in cursor]

@@ -39,6 +39,10 @@ public class MyPageController : MonoBehaviour
     [SerializeField] private TMP_Text scenarioProgressText;
     [SerializeField] private TMP_Text scenarioUpdatedAtText;
 
+    [Header("퀴즈 학습 진행도")]
+    [SerializeField] private TMP_Text quizProgressText;
+    [SerializeField] private Slider quizProgressSlider;
+
     [Header("상태")]
     [SerializeField] private Button refreshButton;
     [Tooltip("마이페이지 최초 진입 시 모든 정보를 불러오는 동안 표시합니다.")]
@@ -54,10 +58,14 @@ public class MyPageController : MonoBehaviour
     public bool IsLoading { get; private set; }
 
     private readonly List<GameObject> spawnedRows = new List<GameObject>();
+    private FinanceQuizProgressService quizProgressService;
+    private float nextQuizProgressRefresh;
 
     private void OnEnable()
     {
         ApplyUsername();
+        quizProgressService = FinanceQuizProgressService.Instance;
+        quizProgressService.Changed += ApplyQuizProgress;
 
         if (refreshButton != null)
         {
@@ -70,6 +78,9 @@ public class MyPageController : MonoBehaviour
 
     private void OnDisable()
     {
+        if (quizProgressService != null)
+            quizProgressService.Changed -= ApplyQuizProgress;
+
         if (refreshButton != null)
             refreshButton.onClick.RemoveListener(RefreshHoldings);
     }
@@ -84,6 +95,7 @@ public class MyPageController : MonoBehaviour
 
     public void RefreshAll()
     {
+        RefreshQuizProgress();
         if (!IsLoading)
             StartCoroutine(RefreshAllRoutine());
     }
@@ -319,6 +331,34 @@ public class MyPageController : MonoBehaviour
             scenarioProgressSlider.maxValue = 100f;
             scenarioProgressSlider.SetValueWithoutNotify(Mathf.Clamp(progress, 0f, 100f));
             scenarioProgressSlider.interactable = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (quizProgressService != null && Time.unscaledTime >= nextQuizProgressRefresh)
+            RefreshQuizProgress();
+    }
+
+    public void RefreshQuizProgress()
+    {
+        if (quizProgressService == null) return;
+        nextQuizProgressRefresh = Time.unscaledTime + 15f;
+        quizProgressService.RefreshProgress();
+        ApplyQuizProgress();
+    }
+
+    private void ApplyQuizProgress()
+    {
+        float progress = quizProgressService != null ? quizProgressService.ProgressPercent : 0f;
+        SetText(quizProgressText, progress.ToString("F0", CultureInfo.InvariantCulture) + "%");
+        if (quizProgressSlider != null)
+        {
+            quizProgressSlider.minValue = 0f;
+            quizProgressSlider.maxValue = 100f;
+            quizProgressSlider.wholeNumbers = false;
+            quizProgressSlider.interactable = false;
+            quizProgressSlider.SetValueWithoutNotify(progress);
         }
     }
 

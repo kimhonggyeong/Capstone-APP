@@ -9,4 +9,3 @@ def route_narrative_request(*, changed: bool, is_compare: bool) -> Callable[[str
     # TODO: changed=False이고 is_compare=False인 저중요도 케이스는
     #       추후 로컬 모델로 강제 분기 (지금은 LLM_PROVIDER 설정을 그대로 따름)
     return call_text
-

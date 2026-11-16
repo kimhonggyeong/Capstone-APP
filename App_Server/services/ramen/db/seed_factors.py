@@ -1,5 +1,5 @@
 """요인 카탈로그를 DB에 1회 시딩하는 스크립트.
-실행: python -m app.db.seed_factors
+실행: python -m services.ramen.db.seed_factors
 """
 import asyncio
 from services.ramen.db.mongo import get_database
@@ -17,4 +17,3 @@ async def seed():
 
 if __name__ == "__main__":
     asyncio.run(seed())
-
