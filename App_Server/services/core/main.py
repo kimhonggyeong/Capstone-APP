@@ -5165,10 +5165,11 @@ def request_kis_volume_rank(
     KIS 국내주식 거래량순위.
 
     FID_BLNG_CLS_CODE
-    0: 거래량 기준
+    0: 평균거래량
     1: 거래량 증가율
+    2: 평균거래회전율
     3: 거래대금 기준
-    4: 체결강도 기준으로 사용 시도
+    4: 평균거래금액회전율 (체결강도 정렬이 아님)
     """
     if KIS_MODE != "real":
         raise HTTPException(
@@ -5389,45 +5390,65 @@ def get_kis_market_cap_rank(limit: int = 30) -> List[dict]:
 
 def get_kis_execution_strength_rank(limit: int = 30) -> List[dict]:
     """
-    체결강도 순위.
-
-    KIS 거래량순위 API에서 체결강도 정렬 코드 4를 먼저 시도한다.
-    코드 4가 지원되지 않는 환경에서는 거래량 상위 30개 응답을
-    체결강도(tday_rltv) 기준으로 서버에서 재정렬한다.
+    KIS 체결강도 상위 전용 API의 당일 체결강도(tday_rltv)를 반환한다.
+    거래량순위 응답에는 이 필드가 없으므로 거래량순위로 대체하지 않는다.
     """
+    if KIS_MODE != "real":
+        raise HTTPException(
+            status_code=503,
+            detail="체결강도 순위 API는 KIS 실전 환경에서 사용해야 합니다."
+        )
+
     limit = max(1, min(int(limit), 30))
+    token = get_access_token()
+    url = f"{KIS_BASE_URL}/uapi/domestic-stock/v1/ranking/volume-power"
+    headers = make_kis_headers("FHPST01680000", token)
+    params = {
+        "FID_COND_MRKT_DIV_CODE": "J",
+        "FID_COND_SCR_DIV_CODE": "20168",
+        "FID_INPUT_ISCD": "0000",
+        "FID_DIV_CLS_CODE": "0",
+        "FID_INPUT_PRICE_1": "",
+        "FID_INPUT_PRICE_2": "",
+        "FID_VOL_CNT": "",
+        "FID_TRGT_CLS_CODE": "0",
+        "FID_TRGT_EXLS_CLS_CODE": "0",
+    }
 
-    try:
-        items = request_kis_volume_rank(
-            sort_code="4",
-            limit=limit
-        )
-
-        valid_strength_count = sum(
-            1
-            for item in items
-            if item.get("execution_strength", 0.0) > 0
-        )
-
-        if valid_strength_count > 0:
-            items.sort(
-                key=lambda item: item.get("execution_strength", 0.0),
-                reverse=True
-            )
-
-            for index, item in enumerate(items, start=1):
-                item["rank"] = index
-
-            return items
-
-    except Exception as e:
-        print("[EXECUTION STRENGTH SORT CODE 4 FAIL]", e)
-
-    # 정렬 코드 4가 지원되지 않을 때 거래량 상위 데이터 재정렬
-    items = request_kis_volume_rank(
-        sort_code="0",
-        limit=30
+    data = kis_get_with_retry(
+        url=url,
+        headers=headers,
+        params=params,
+        max_retry=3
     )
+
+    if data.get("rt_cd") != "0":
+        raise HTTPException(
+            status_code=502,
+            detail={
+                "message": "KIS 체결강도 순위 요청 실패",
+                "kis_response": data
+            }
+        )
+
+    rows = parse_rank_rows(data)
+    strength_rows = [
+        row for row in rows
+        if isinstance(row, dict) and row.get("tday_rltv") not in (None, "")
+    ]
+    if rows and not strength_rows:
+        raise HTTPException(
+            status_code=502,
+            detail="KIS 체결강도 순위 응답에 당일 체결강도(tday_rltv)가 없습니다."
+        )
+
+    items = []
+    for row in strength_rows:
+        item = make_common_rank_item(row, 0)
+        if item is not None:
+            # A real zero is valid; do not substitute another numeric field.
+            item["execution_strength"] = parse_float(row["tday_rltv"])
+            items.append(item)
 
     items.sort(
         key=lambda item: item.get("execution_strength", 0.0),

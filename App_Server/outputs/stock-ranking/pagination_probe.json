@@ -1,0 +1,58 @@
+[
+  {
+    "rank": "volume",
+    "items": 24,
+    "responses": [
+      {
+        "raw_rows": 30,
+        "continuation": "",
+        "rt_cd": "0",
+        "msg_cd": "MCA00000",
+        "first_symbol": "252670",
+        "last_symbol": "123310"
+      }
+    ]
+  },
+  {
+    "rank": "change-rate",
+    "items": 26,
+    "responses": [
+      {
+        "raw_rows": 30,
+        "continuation": "",
+        "rt_cd": "0",
+        "msg_cd": "MCA00000",
+        "first_symbol": "001527",
+        "last_symbol": "163280"
+      }
+    ]
+  },
+  {
+    "rank": "market-cap",
+    "items": 30,
+    "responses": [
+      {
+        "raw_rows": 30,
+        "continuation": "",
+        "rt_cd": "0",
+        "msg_cd": "MCA00000",
+        "first_symbol": "005930",
+        "last_symbol": "138040"
+      }
+    ]
+  },
+  {
+    "rank": "execution-strength",
+    "items": 15,
+    "responses": [
+      {
+        "raw_rows": 30,
+        "continuation": "",
+        "rt_cd": "0",
+        "msg_cd": "MCA00000",
+        "first_symbol": "234310",
+        "last_symbol": "183710"
+      }
+    ]
+  }
+]
