@@ -1,0 +1,57 @@
+[
+  {
+    "rank": "volume",
+    "checks": [
+      {
+        "variant": "next_header",
+        "rows": 30,
+        "same_symbols": true,
+        "continuation": "N",
+        "rt_cd": "0"
+      }
+    ]
+  },
+  {
+    "rank": "change-rate",
+    "checks": [
+      {
+        "variant": "next_header",
+        "rows": 30,
+        "same_symbols": false,
+        "continuation": "N",
+        "rt_cd": "0"
+      },
+      {
+        "variant": "count_100",
+        "rows": 30,
+        "same_symbols": false,
+        "continuation": "",
+        "rt_cd": "0"
+      }
+    ]
+  },
+  {
+    "rank": "market-cap",
+    "checks": [
+      {
+        "variant": "next_header",
+        "rows": 30,
+        "same_symbols": true,
+        "continuation": "N",
+        "rt_cd": "0"
+      }
+    ]
+  },
+  {
+    "rank": "execution-strength",
+    "checks": [
+      {
+        "variant": "next_header",
+        "rows": 30,
+        "same_symbols": true,
+        "continuation": "N",
+        "rt_cd": "0"
+      }
+    ]
+  }
+]

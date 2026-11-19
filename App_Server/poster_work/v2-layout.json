@@ -1,0 +1,4483 @@
+{
+  "schema": "openai.presentation.layout/v5",
+  "unit": "px",
+  "slide": {
+    "id": "sl/y90nupkv",
+    "index": 0,
+    "layout": {
+      "id": "ly/ux4ruhcv",
+      "name": "BLANK"
+    },
+    "masterLayoutId": "ly/atofqts7",
+    "position": {
+      "left": 0,
+      "top": 0,
+      "width": 1583.53,
+      "height": 2239.53
+    }
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "ly/ux4ruhcv",
+      "name": "BLANK",
+      "type": "blank",
+      "parentLayoutId": "ly/atofqts7",
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "layout",
+          "id": "sh/yl8jmd4z",
+          "editable": false,
+          "name": "Google Shape;24;p2",
+          "position": {
+            "left": 78.33,
+            "top": 2076.33,
+            "width": 370.33,
+            "height": 118.5
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "layout",
+          "id": "sh/z6h0filk",
+          "editable": false,
+          "name": "Google Shape;25;p2",
+          "position": {
+            "left": 540.17,
+            "top": 2076.33,
+            "width": 502.67,
+            "height": 118.5
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 3,
+          "kind": "textbox",
+          "scope": "layout",
+          "id": "sh/k7q1onm5",
+          "editable": false,
+          "name": "Google Shape;26;p2",
+          "position": {
+            "left": 1134.33,
+            "top": 2076.33,
+            "width": 370.33,
+            "height": 118.5
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "text": "1",
+          "style": {
+            "anchor": 1,
+            "alignment": "left",
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "1",
+              "style": {
+                "alignment": "left"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "1",
+                  "anchor": 1,
+                  "alignment": "left",
+                  "verticalAlignment": "top",
+                  "wrap": "square",
+                  "autoFit": "none",
+                  "insets": {
+                    "top": 4.8,
+                    "right": 9.6,
+                    "bottom": 4.8,
+                    "left": 9.6
+                  },
+                  "useParagraphSpacing": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scope": "master",
+      "id": "ly/atofqts7",
+      "type": "master",
+      "backgroundImage": {
+        "contentType": "image/png",
+        "byteLength": 348759
+      },
+      "elements": [
+        {
+          "order": 1,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/v6lcrixk",
+          "editable": false,
+          "name": "Google Shape;10;p1",
+          "position": {
+            "left": 25.5,
+            "top": 282.33,
+            "width": 1532,
+            "height": 1900.5
+          },
+          "geometry": "rect",
+          "fillColor": "#FFFFFF",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "alignment": "left",
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 2,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/u5svidgz",
+          "editable": false,
+          "name": "Google Shape;11;p1",
+          "position": {
+            "left": 25.5,
+            "top": 25.33,
+            "width": 1532,
+            "height": 230.5
+          },
+          "geometry": "roundRect",
+          "fillColor": "#FFFFFF",
+          "lineColor": "#385D8A",
+          "lineWidth": 2.71,
+          "style": {
+            "anchor": 1,
+            "alignment": "left",
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 3,
+          "kind": "image",
+          "scope": "master",
+          "id": "im/kfe9knih",
+          "editable": false,
+          "name": "Google Shape;12;p1",
+          "position": {
+            "left": 44.17,
+            "top": 40,
+            "width": 196.67,
+            "height": 197
+          },
+          "contentType": "image/jpeg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          "asset": {
+            "contentType": "image/jpeg",
+            "byteLength": 24157
+          },
+          "fillImage": {
+            "contentType": "image/jpeg",
+            "byteLength": 24157
+          }
+        },
+        {
+          "order": 4,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/w7udkny5",
+          "editable": false,
+          "name": "Google Shape;13;p1",
+          "position": {
+            "left": 240.83,
+            "top": 177.83,
+            "width": 1293.17,
+            "height": 0
+          },
+          "geometry": "straightConnector1",
+          "lineColor": "#C0504D",
+          "lineWidth": 4.08
+        },
+        {
+          "order": 5,
+          "kind": "textbox",
+          "scope": "master",
+          "id": "sh/7i1cnyxo",
+          "editable": false,
+          "name": "Google Shape;14;p1",
+          "position": {
+            "left": 25.5,
+            "top": 2183.33,
+            "width": 1532,
+            "height": 54.83
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "text": "신한대학교  IT융합공학부  컴퓨터공학전공",
+          "style": {
+            "anchor": 2,
+            "fontSize": 37.33,
+            "typeface": "Batang",
+            "color": "#F2F2F2",
+            "alignment": "right",
+            "verticalAlignment": "middle",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "신한대학교  IT융합공학부  컴퓨터공학전공",
+              "style": {
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "신한대학교  IT융합공학부  컴퓨터공학전공",
+                  "anchor": 2,
+                  "fontSize": 37.33,
+                  "typeface": "Batang",
+                  "color": "#F2F2F2",
+                  "alignment": "right",
+                  "verticalAlignment": "middle",
+                  "wrap": "square",
+                  "autoFit": "none",
+                  "insets": {
+                    "top": 4.8,
+                    "right": 9.6,
+                    "bottom": 4.8,
+                    "left": 9.6
+                  },
+                  "useParagraphSpacing": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/mhsvetg3",
+          "editable": false,
+          "name": "Google Shape;15;p1",
+          "position": {
+            "left": 78.17,
+            "top": 88.83,
+            "width": 1426.67,
+            "height": 374.17
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 2,
+            "verticalAlignment": "middle",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 10.95,
+              "right": 21.9,
+              "bottom": 10.95,
+              "left": 21.9
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 7,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/94jup8fe",
+          "editable": false,
+          "name": "Google Shape;16;p1",
+          "position": {
+            "left": 79.17,
+            "top": 522.5,
+            "width": 699.33,
+            "height": 717.17
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 10.95,
+              "right": 21.9,
+              "bottom": 10.95,
+              "left": 21.9
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 8,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/83adg3y9",
+          "editable": false,
+          "name": "Google Shape;17;p1",
+          "position": {
+            "left": 805,
+            "top": 522.5,
+            "width": 699.33,
+            "height": 717.17
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 10.95,
+              "right": 21.9,
+              "bottom": 10.95,
+              "left": 21.9
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 9,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/ze1cjyxc",
+          "editable": false,
+          "name": "Google Shape;18;p1",
+          "position": {
+            "left": 78.83,
+            "top": 1301,
+            "width": 699.5,
+            "height": 717.17
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 10.95,
+              "right": 21.9,
+              "bottom": 10.95,
+              "left": 21.9
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 10,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/yd8batgr",
+          "editable": false,
+          "name": "Google Shape;19;p1",
+          "position": {
+            "left": 804.67,
+            "top": 1301,
+            "width": 699.5,
+            "height": 717.17
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 10.95,
+              "right": 21.9,
+              "bottom": 10.95,
+              "left": 21.9
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 11,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/298v2t0z",
+          "editable": false,
+          "name": "Google Shape;20;p1",
+          "position": {
+            "left": 78.33,
+            "top": 2076.33,
+            "width": 370.33,
+            "height": 118.5
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 12,
+          "kind": "shape",
+          "scope": "master",
+          "id": "sh/nahwvyhk",
+          "editable": false,
+          "name": "Google Shape;21;p1",
+          "position": {
+            "left": 540.17,
+            "top": 2076.33,
+            "width": 502.67,
+            "height": 118.5
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "style": {
+            "anchor": 1,
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          }
+        },
+        {
+          "order": 13,
+          "kind": "textbox",
+          "scope": "master",
+          "id": "sh/obqd4jip",
+          "editable": false,
+          "name": "Google Shape;22;p1",
+          "position": {
+            "left": 1134.33,
+            "top": 2076.33,
+            "width": 370.33,
+            "height": 118.5
+          },
+          "geometry": "rect",
+          "lineWidth": 0,
+          "text": "1",
+          "style": {
+            "anchor": 1,
+            "alignment": "left",
+            "verticalAlignment": "top",
+            "wrap": "square",
+            "autoFit": "none",
+            "insets": {
+              "top": 4.8,
+              "right": 9.6,
+              "bottom": 4.8,
+              "left": 9.6
+            },
+            "useParagraphSpacing": true
+          },
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "1",
+              "style": {
+                "alignment": "left"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "1",
+                  "anchor": 1,
+                  "alignment": "left",
+                  "verticalAlignment": "top",
+                  "wrap": "square",
+                  "autoFit": "none",
+                  "insets": {
+                    "top": 4.8,
+                    "right": 9.6,
+                    "bottom": 4.8,
+                    "left": 9.6
+                  },
+                  "useParagraphSpacing": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/7edgbalw",
+      "editable": true,
+      "name": "Google Shape;97;p13",
+      "position": {
+        "left": 242.87,
+        "top": 31,
+        "width": 1292.47,
+        "height": 149.9
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "ANTITUDE\n시나리오 기반 AI 투자 판단 학습 플랫폼",
+      "style": {
+        "anchor": 2,
+        "fontSize": 65.33,
+        "typeface": "Malgun Gothic",
+        "color": "#002060",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ANTITUDE",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ANTITUDE",
+              "anchor": 2,
+              "fontSize": 65.33,
+              "typeface": "Malgun Gothic",
+              "color": "#002060",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "시나리오 기반 AI 투자 판단 학습 플랫폼",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "시나리오 기반 AI 투자 판단 학습 플랫폼",
+              "anchor": 2,
+              "fontSize": 36,
+              "typeface": "Malgun Gothic",
+              "color": "#002060",
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/8j2xsbmd",
+      "editable": true,
+      "name": "Google Shape;98;p13",
+      "position": {
+        "left": 240.87,
+        "top": 190,
+        "width": 1292.47,
+        "height": 50.44
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": " 윤정우, 이현우, 김홍경, 조현우, 주성준",
+      "style": {
+        "anchor": 2,
+        "fontSize": 31,
+        "typeface": "Malgun Gothic",
+        "color": "#111827",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": " 윤정우, 이현우, 김홍경, 조현우, 주성준",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": " 윤정우, 이현우, 김홍경, 조현우, 주성준",
+              "anchor": 2,
+              "fontSize": 31,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/9kby1g3i",
+      "editable": true,
+      "name": "Google Shape;99;p13",
+      "position": {
+        "left": 82.53,
+        "top": 401.53,
+        "width": 1434,
+        "height": 155.13
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#376092",
+      "lineWidth": 3.04,
+      "text": "투자 입문자가 뉴스와 차트를 해석하고 매매 근거를 설명하는 연습을 할 수 있는 학습 환경 마련\n과거 사건을 재현한 시나리오에서 투자 행동과 판단 이유를 함께 기록하며 의사결정 과정 학습\n웹의 시세·공시 분석과 모바일 앱의 턴별 실습·AI 비교·복습을 통해 위험 인식과 판단 능력 훈련",
+      "style": {
+        "anchor": 2,
+        "fontSize": 28,
+        "typeface": "Malgun Gothic",
+        "color": "#111827",
+        "bold": false,
+        "italic": false,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.1,
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 12,
+          "right": 24,
+          "bottom": 12,
+          "left": 24
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "투자 입문자가 뉴스와 차트를 해석하고 매매 근거를 설명하는 연습을 할 수 있는 학습 환경 마련",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.1
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "투자 입문자가 뉴스와 차트를 해석하고 매매 근거를 설명하는 연습을 할 수 있는 학습 환경 마련",
+              "anchor": 2,
+              "fontSize": 28,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.1,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "과거 사건을 재현한 시나리오에서 투자 행동과 판단 이유를 함께 기록하며 의사결정 과정 학습",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.1
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "과거 사건을 재현한 시나리오에서 투자 행동과 판단 이유를 함께 기록하며 의사결정 과정 학습",
+              "anchor": 2,
+              "fontSize": 28,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.1,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "웹의 시세·공시 분석과 모바일 앱의 턴별 실습·AI 비교·복습을 통해 위험 인식과 판단 능력 훈련",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.1
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "웹의 시세·공시 분석과 모바일 앱의 턴별 실습·AI 비교·복습을 통해 위험 인식과 판단 능력 훈련",
+              "anchor": 2,
+              "fontSize": 28,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.1,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/yhkza1wv",
+      "editable": true,
+      "name": "Google Shape;100;p13",
+      "position": {
+        "left": 82.53,
+        "top": 673.67,
+        "width": 1434.07,
+        "height": 240
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#1F497D",
+      "lineWidth": 2.71,
+      "text": "시나리오 실습: 사건·난이도를 선택하고 턴별 뉴스·차트를 확인한 뒤 매매와 판단 근거 제출\n턴별 피드백: 잘한 점·놓친 점과 평가 점수를 확인하고, 완료 후 수익률·최종 코칭으로 복습\nAI 판단 비교: 종목의 매수·매도·관망 근거·신뢰도를 확인하고 내 판단과 비교, 히스토리 조회\n시장 실습: 실시간 차트·호가·뉴스로 가상 주문을 연습하고, 직접 입력한 사건의 시장 반응 분석\n학습 관리: 시나리오 이어하기·재도전, 금융 용어·퀴즈, 마이페이지의 자산·진행 상황 확인\n웹 제공 기능: 국내·미국 주식 모의투자, 과거 금융 이벤트 시나리오, 공시 RAG·투자자 관점 분석",
+      "style": {
+        "anchor": 2,
+        "fontSize": 27,
+        "typeface": "Malgun Gothic",
+        "color": "#111827",
+        "bold": false,
+        "italic": false,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 12,
+          "right": 24,
+          "bottom": 12,
+          "left": 24
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "시나리오 실습: 사건·난이도를 선택하고 턴별 뉴스·차트를 확인한 뒤 매매와 판단 근거 제출",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "시나리오 실습: 사건·난이도를 선택하고 턴별 뉴스·차트를 확인한 뒤 매매와 판단 근거 제출",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "턴별 피드백: 잘한 점·놓친 점과 평가 점수를 확인하고, 완료 후 수익률·최종 코칭으로 복습",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "턴별 피드백: 잘한 점·놓친 점과 평가 점수를 확인하고, 완료 후 수익률·최종 코칭으로 복습",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "AI 판단 비교: 종목의 매수·매도·관망 근거·신뢰도를 확인하고 내 판단과 비교, 히스토리 조회",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI 판단 비교: 종목의 매수·매도·관망 근거·신뢰도를 확인하고 내 판단과 비교, 히스토리 조회",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "text": "시장 실습: 실시간 차트·호가·뉴스로 가상 주문을 연습하고, 직접 입력한 사건의 시장 반응 분석",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "시장 실습: 실시간 차트·호가·뉴스로 가상 주문을 연습하고, 직접 입력한 사건의 시장 반응 분석",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "text": "학습 관리: 시나리오 이어하기·재도전, 금융 용어·퀴즈, 마이페이지의 자산·진행 상황 확인",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "학습 관리: 시나리오 이어하기·재도전, 금융 용어·퀴즈, 마이페이지의 자산·진행 상황 확인",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "text": "웹 제공 기능: 국내·미국 주식 모의투자, 과거 금융 이벤트 시나리오, 공시 RAG·투자자 관점 분석",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "alignment": "left",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "웹 제공 기능: 국내·미국 주식 모의투자, 과거 금융 이벤트 시나리오, 공시 RAG·투자자 관점 분석",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/jitg36dg",
+      "editable": true,
+      "name": "Google Shape;101;p13",
+      "position": {
+        "left": 78.33,
+        "top": 1760.6,
+        "width": 1434,
+        "height": 138
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#385D8A",
+      "lineWidth": 2.71,
+      "text": "클라이언트: Android 앱 Unity·C# / PC 웹 React·TypeScript\n서버: 앱 Python·FastAPI(8000 포트 통합), 웹 Node.js·Express / 기록 저장 MongoDB Atlas\nAI·데이터: OpenAI·Gemini·Ollama, 공시 RAG·FAISS, KIS Open API, 뉴스·DART·SEC EDGAR",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#111827",
+        "bold": false,
+        "italic": false,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 12,
+          "right": 24,
+          "bottom": 12,
+          "left": 24
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "클라이언트: Android 앱 Unity·C# / PC 웹 React·TypeScript",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "클라이언트: Android 앱 Unity·C# / PC 웹 React·TypeScript",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "서버: 앱 Python·FastAPI(8000 포트 통합), 웹 Node.js·Express / 기록 저장 MongoDB Atlas",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "서버: 앱 Python·FastAPI(8000 포트 통합), 웹 Node.js·Express / 기록 저장 MongoDB Atlas",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "AI·데이터: OpenAI·Gemini·Ollama, 공시 RAG·FAISS, KIS Open API, 뉴스·DART·SEC EDGAR",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI·데이터: OpenAI·Gemini·Ollama, 공시 RAG·FAISS, KIS Open API, 뉴스·DART·SEC EDGAR",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/kj2hcbel",
+      "editable": true,
+      "name": "Google Shape;102;p13",
+      "position": {
+        "left": 83.67,
+        "top": 2012.6,
+        "width": 1434.07,
+        "height": 155.07
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#385D8A",
+      "lineWidth": 2.67,
+      "text": "가상 자금과 과거 사건을 활용해 금전 손실 없이 투자 판단과 주문 과정을 반복 연습\n근거 제출·턴별 코칭·AI 비교·히스토리를 연결하여 판단 과정과 행동의 일관성을 점검\n진행 기록과 금융 용어·퀴즈를 활용한 자기주도 복습, 대학 금융·경제 수업 및 입문 교육에 활용",
+      "style": {
+        "anchor": 2,
+        "fontSize": 27,
+        "typeface": "Malgun Gothic",
+        "color": "#111827",
+        "bold": false,
+        "italic": false,
+        "alignment": "left",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 12,
+          "right": 24,
+          "bottom": 12,
+          "left": 24
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "가상 자금과 과거 사건을 활용해 금전 손실 없이 투자 판단과 주문 과정을 반복 연습",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "가상 자금과 과거 사건을 활용해 금전 손실 없이 투자 판단과 주문 과정을 반복 연습",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "근거 제출·턴별 코칭·AI 비교·히스토리를 연결하여 판단 과정과 행동의 일관성을 점검",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "근거 제출·턴별 코칭·AI 비교·히스토리를 연결하여 판단 과정과 행동의 일관성을 점검",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "진행 기록과 금융 용어·퀴즈를 활용한 자기주도 복습, 대학 금융·경제 수업 및 입문 교육에 활용",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "진행 기록과 금융 용어·퀴즈를 활용한 자기주도 복습, 대학 금융·경제 수업 및 입문 교육에 활용",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#111827",
+              "bold": false,
+              "alignment": "left",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 12,
+                "right": 24,
+                "bottom": 12,
+                "left": 24
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/4zulwbm5",
+      "editable": true,
+      "name": "Google Shape;103;p13",
+      "position": {
+        "left": 82.47,
+        "top": 597.47,
+        "width": 562.13,
+        "height": 64.13
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      }
+    },
+    {
+      "order": 8,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/654ze1wr",
+      "editable": true,
+      "name": "Google Shape;104;p13",
+      "position": {
+        "left": 150.67,
+        "top": 601.33,
+        "width": 459.33,
+        "height": 55
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "주요 기능과 앱 학습 경험",
+      "style": {
+        "anchor": 1,
+        "fontSize": 37.33,
+        "typeface": "Arial",
+        "color": "#002060",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.76,
+          "right": 9.52,
+          "bottom": 4.76,
+          "left": 9.52
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "주요 기능과 앱 학습 경험",
+          "lineSpacingPercent": 100000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "주요 기능과 앱 학습 경험",
+              "anchor": 1,
+              "fontSize": 37.33,
+              "typeface": "Arial",
+              "color": "#002060",
+              "alignment": "center",
+              "verticalAlignment": "top",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 4.76,
+                "right": 9.52,
+                "bottom": 4.76,
+                "left": 9.52
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 9,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/q1w3yl4b",
+      "editable": true,
+      "name": "Google Shape;105;p13",
+      "position": {
+        "left": 72,
+        "top": 567.2,
+        "width": 41.8,
+        "height": 66.67
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      }
+    },
+    {
+      "order": 10,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/d4nmtg3m",
+      "editable": true,
+      "name": "Google Shape;106;p13",
+      "position": {
+        "left": 82.33,
+        "top": 322.13,
+        "width": 562.33,
+        "height": 64.33
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      }
+    },
+    {
+      "order": 11,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/t8vy9gvi",
+      "editable": true,
+      "name": "Google Shape;107;p13",
+      "position": {
+        "left": 150.67,
+        "top": 326.13,
+        "width": 418.13,
+        "height": 55
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "개발 배경 및 목표",
+      "style": {
+        "anchor": 1,
+        "fontSize": 37.33,
+        "typeface": "Arial",
+        "color": "#002060",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.76,
+          "right": 9.52,
+          "bottom": 4.76,
+          "left": 9.52
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "개발 배경 및 목표",
+          "lineSpacingPercent": 100000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "개발 배경 및 목표",
+              "anchor": 1,
+              "fontSize": 37.33,
+              "typeface": "Arial",
+              "color": "#002060",
+              "alignment": "center",
+              "verticalAlignment": "top",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 4.76,
+                "right": 9.52,
+                "bottom": 4.76,
+                "left": 9.52
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/761kfm5c",
+      "editable": true,
+      "name": "Google Shape;108;p13",
+      "position": {
+        "left": 72,
+        "top": 292,
+        "width": 41.8,
+        "height": 66.67
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      }
+    },
+    {
+      "order": 13,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/65s3mh4r",
+      "editable": true,
+      "name": "Google Shape;109;p13",
+      "position": {
+        "left": 84.47,
+        "top": 950.13,
+        "width": 562.13,
+        "height": 64.13
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      }
+    },
+    {
+      "order": 14,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/pgzax4jm",
+      "editable": true,
+      "name": "Google Shape;110;p13",
+      "position": {
+        "left": 152.67,
+        "top": 954,
+        "width": 418.13,
+        "height": 53.8
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "앱 학습 흐름과 구성",
+      "style": {
+        "anchor": 1,
+        "fontSize": 37.33,
+        "typeface": "Arial",
+        "color": "#002060",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.76,
+          "right": 9.52,
+          "bottom": 4.76,
+          "left": 9.52
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "앱 학습 흐름과 구성",
+          "lineSpacingPercent": 100000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "앱 학습 흐름과 구성",
+              "anchor": 1,
+              "fontSize": 37.33,
+              "typeface": "Arial",
+              "color": "#002060",
+              "alignment": "center",
+              "verticalAlignment": "top",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 4.76,
+                "right": 9.52,
+                "bottom": 4.76,
+                "left": 9.52
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/x0fq9ozy",
+      "editable": true,
+      "name": "Google Shape;111;p13",
+      "position": {
+        "left": 74,
+        "top": 919.87,
+        "width": 41.8,
+        "height": 66.67
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      }
+    },
+    {
+      "order": 16,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/axorytgn",
+      "editable": true,
+      "name": "Google Shape;112;p13",
+      "position": {
+        "left": 77.8,
+        "top": 1677.13,
+        "width": 562.47,
+        "height": 64.33
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      }
+    },
+    {
+      "order": 17,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/2d8rm9kb",
+      "editable": true,
+      "name": "Google Shape;113;p13",
+      "position": {
+        "left": 146.33,
+        "top": 1681.27,
+        "width": 418.13,
+        "height": 55
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "개발 및 운영 환경",
+      "style": {
+        "anchor": 1,
+        "fontSize": 37.33,
+        "typeface": "Arial",
+        "color": "#002060",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.76,
+          "right": 9.52,
+          "bottom": 4.76,
+          "left": 9.52
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "개발 및 운영 환경",
+          "lineSpacingPercent": 100000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "개발 및 운영 환경",
+              "anchor": 1,
+              "fontSize": 37.33,
+              "typeface": "Arial",
+              "color": "#002060",
+              "alignment": "center",
+              "verticalAlignment": "top",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 4.76,
+                "right": 9.52,
+                "bottom": 4.76,
+                "left": 9.52
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/ovm9wjyh",
+      "editable": true,
+      "name": "Google Shape;114;p13",
+      "position": {
+        "left": 67.67,
+        "top": 1647.13,
+        "width": 41.8,
+        "height": 66.67
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      }
+    },
+    {
+      "order": 19,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/pwvq5oz2",
+      "editable": true,
+      "name": "Google Shape;115;p13",
+      "position": {
+        "left": 84.33,
+        "top": 1936.13,
+        "width": 562.47,
+        "height": 64.13
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 72038
+      }
+    },
+    {
+      "order": 20,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/bi1sze1s",
+      "editable": true,
+      "name": "Google Shape;116;p13",
+      "position": {
+        "left": 152.67,
+        "top": 1940.33,
+        "width": 418.13,
+        "height": 53.47
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "기대효과 및 활용방안",
+      "style": {
+        "anchor": 1,
+        "fontSize": 37.33,
+        "typeface": "Arial",
+        "color": "#002060",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.76,
+          "right": 9.52,
+          "bottom": 4.76,
+          "left": 9.52
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "기대효과 및 활용방안",
+          "lineSpacingPercent": 100000,
+          "style": {
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "기대효과 및 활용방안",
+              "anchor": 1,
+              "fontSize": 37.33,
+              "typeface": "Arial",
+              "color": "#002060",
+              "alignment": "center",
+              "verticalAlignment": "top",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 4.76,
+                "right": 9.52,
+                "bottom": 4.76,
+                "left": 9.52
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 21,
+      "kind": "image",
+      "scope": "slide",
+      "id": "im/nad83ehw",
+      "editable": true,
+      "name": "Google Shape;117;p13",
+      "position": {
+        "left": 74,
+        "top": 1906.13,
+        "width": 41.8,
+        "height": 66.67
+      },
+      "contentType": "image/png",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "asset": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      },
+      "fillImage": {
+        "contentType": "image/png",
+        "byteLength": 19288
+      }
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/tofapkju",
+      "editable": true,
+      "name": "Google Shape;118;p13",
+      "position": {
+        "left": 82.53,
+        "top": 1029.53,
+        "width": 1434,
+        "height": 610.67
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#1F497D",
+      "lineWidth": 2.71,
+      "style": {
+        "anchor": 1,
+        "fontSize": 18.67,
+        "typeface": "Arial",
+        "color": "#000000",
+        "bold": false,
+        "italic": false,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        },
+        "useParagraphSpacing": true
+      }
+    },
+    {
+      "order": 23,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/sn69gf29",
+      "editable": true,
+      "name": "Google Shape;119;p13",
+      "position": {
+        "left": 6.53,
+        "top": 2190,
+        "width": 1570.13,
+        "height": 45
+      },
+      "geometry": "rect",
+      "fillColor": "#002060",
+      "lineWidth": 0,
+      "text": "신한대학교 소프트웨어융합학과",
+      "style": {
+        "anchor": 2,
+        "fontSize": 30,
+        "typeface": "Malgun Gothic",
+        "color": "#FFFFFF",
+        "bold": false,
+        "italic": false,
+        "alignment": "right",
+        "verticalAlignment": "middle",
+        "textTransform": "none",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 16,
+          "bottom": 0,
+          "left": 0
+        },
+        "useParagraphSpacing": true
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "신한대학교 소프트웨어융합학과",
+          "lineSpacingPercent": 110000,
+          "style": {
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "신한대학교 소프트웨어융합학과",
+              "anchor": 2,
+              "fontSize": 30,
+              "typeface": "Malgun Gothic",
+              "color": "#FFFFFF",
+              "bold": false,
+              "alignment": "right",
+              "verticalAlignment": "middle",
+              "wrap": "square",
+              "autoFit": "none",
+              "insets": {
+                "top": 0,
+                "right": 16,
+                "bottom": 0,
+                "left": 0
+              },
+              "useParagraphSpacing": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/kratwza5",
+      "editable": true,
+      "name": "app-flow-caption",
+      "position": {
+        "left": 120,
+        "top": 1045,
+        "width": 1355,
+        "height": 43
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "시나리오에서 판단하고 근거를 남긴 뒤, 피드백을 받아 다시 연습",
+      "style": {
+        "anchor": 2,
+        "fontSize": 27,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "시나리오에서 판단하고 근거를 남긴 뒤, 피드백을 받아 다시 연습",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 27,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "시나리오에서 판단하고 근거를 남긴 뒤, 피드백을 받아 다시 연습",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/lsja54ra",
+      "editable": true,
+      "name": "learning-step-1",
+      "position": {
+        "left": 120,
+        "top": 1107,
+        "width": 305,
+        "height": 132
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 26,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/ypsbupsz",
+      "editable": true,
+      "name": "learning-title-1",
+      "position": {
+        "left": 128,
+        "top": 1114,
+        "width": 289,
+        "height": 37
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "1  시나리오 선택",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1  시나리오 선택",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "1  시나리오 선택",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 27,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/jq1s3u9k",
+      "editable": true,
+      "name": "learning-body-1",
+      "position": {
+        "left": 130,
+        "top": 1160,
+        "width": 285,
+        "height": 65
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "사건과 난이도 확인\n진행 중인 학습 이어가기",
+      "style": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "사건과 난이도 확인",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "사건과 난이도 확인",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "진행 중인 학습 이어가기",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "진행 중인 학습 이어가기",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/svut0za1",
+      "editable": true,
+      "name": "learning-step-2",
+      "position": {
+        "left": 465,
+        "top": 1107,
+        "width": 305,
+        "height": 132
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 29,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/tw3a94rm",
+      "editable": true,
+      "name": "learning-title-2",
+      "position": {
+        "left": 473,
+        "top": 1114,
+        "width": 289,
+        "height": 37
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "2  정보 확인과 주문",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2  정보 확인과 주문",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2  정보 확인과 주문",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 30,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/6tsbypsv",
+      "editable": true,
+      "name": "learning-body-2",
+      "position": {
+        "left": 475,
+        "top": 1160,
+        "width": 285,
+        "height": 65
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "턴별 뉴스·차트 해석\n매수·매도·관망 결정",
+      "style": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "턴별 뉴스·차트 해석",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "턴별 뉴스·차트 해석",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "매수·매도·관망 결정",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "매수·매도·관망 결정",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/7u1s7u9g",
+      "editable": true,
+      "position": {
+        "left": 425,
+        "top": 1173,
+        "width": 40,
+        "height": 0
+      },
+      "geometry": "straightConnector1",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/gzut4jax",
+      "editable": true,
+      "name": "learning-step-3",
+      "position": {
+        "left": 810,
+        "top": 1107,
+        "width": 305,
+        "height": 132
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 33,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/hk3adori",
+      "editable": true,
+      "name": "learning-title-3",
+      "position": {
+        "left": 818,
+        "top": 1114,
+        "width": 289,
+        "height": 37
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "3  판단 근거 제출",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3  판단 근거 제출",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3  판단 근거 제출",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 34,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/repw3it0",
+      "editable": true,
+      "name": "learning-body-3",
+      "position": {
+        "left": 820,
+        "top": 1160,
+        "width": 285,
+        "height": 65
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "선택형 질문과 자유 서술\n이번 턴 주문 내역 확인",
+      "style": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "선택형 질문과 자유 서술",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "선택형 질문과 자유 서술",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "이번 턴 주문 내역 확인",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "이번 턴 주문 내역 확인",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 35,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/qtwvadcf",
+      "editable": true,
+      "position": {
+        "left": 770,
+        "top": 1173,
+        "width": 40,
+        "height": 0
+      },
+      "geometry": "straightConnector1",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    },
+    {
+      "order": 36,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/dg7e5sbq",
+      "editable": true,
+      "name": "learning-step-4",
+      "position": {
+        "left": 1155,
+        "top": 1107,
+        "width": 305,
+        "height": 132
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 37,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/cfydcnu5",
+      "editable": true,
+      "name": "learning-title-4",
+      "position": {
+        "left": 1163,
+        "top": 1114,
+        "width": 289,
+        "height": 37
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "4  AI 피드백과 복습",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "4  AI 피드백과 복습",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "4  AI 피드백과 복습",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 38,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/3q5czyto",
+      "editable": true,
+      "name": "learning-body-4",
+      "position": {
+        "left": 1165,
+        "top": 1160,
+        "width": 285,
+        "height": 65
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "턴 점수·개선점 확인\n최종 결과 확인과 재도전",
+      "style": {
+        "anchor": 2,
+        "fontSize": 22,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "턴 점수·개선점 확인",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "턴 점수·개선점 확인",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "최종 결과 확인과 재도전",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 22,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "최종 결과 확인과 재도전",
+              "anchor": 2,
+              "fontSize": 22,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 39,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/2pwv6tc3",
+      "editable": true,
+      "position": {
+        "left": 1115,
+        "top": 1173,
+        "width": 40,
+        "height": 0
+      },
+      "geometry": "straightConnector1",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    },
+    {
+      "order": 40,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/psne18bu",
+      "editable": true,
+      "name": "architecture-caption",
+      "position": {
+        "left": 120,
+        "top": 1254,
+        "width": 1355,
+        "height": 40
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "웹과 앱의 사용 환경에 맞춘 서비스 구성",
+      "style": {
+        "anchor": 2,
+        "fontSize": 27,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "웹과 앱의 사용 환경에 맞춘 서비스 구성",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 27,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "웹과 앱의 사용 환경에 맞춘 서비스 구성",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 41,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/4red83u9",
+      "editable": true,
+      "name": "web-client",
+      "position": {
+        "left": 125,
+        "top": 1322,
+        "width": 315,
+        "height": 113
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 42,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/nm9wb2ts",
+      "editable": true,
+      "name": "web-client-title",
+      "position": {
+        "left": 140,
+        "top": 1329,
+        "width": 285,
+        "height": 35
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "PC 웹",
+      "style": {
+        "anchor": 2,
+        "fontSize": 27,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PC 웹",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 27,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PC 웹",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 43,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/ml0v2xcn",
+      "editable": true,
+      "name": "web-client-description",
+      "position": {
+        "left": 140,
+        "top": 1370,
+        "width": 285,
+        "height": 57
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "React·TypeScript\n국내·미국 주식 모의투자",
+      "style": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "React·TypeScript",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "React·TypeScript",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "국내·미국 주식 모의투자",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "국내·미국 주식 모의투자",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 44,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/atgz6h8r",
+      "editable": true,
+      "name": "mobile-client",
+      "position": {
+        "left": 125,
+        "top": 1481,
+        "width": 315,
+        "height": 127
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 45,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/vupgzmpc",
+      "editable": true,
+      "name": "mobile-client-title",
+      "position": {
+        "left": 140,
+        "top": 1488,
+        "width": 285,
+        "height": 34
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "Android 모바일 앱",
+      "style": {
+        "anchor": 2,
+        "fontSize": 27,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Android 모바일 앱",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 27,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Android 모바일 앱",
+              "anchor": 2,
+              "fontSize": 27,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 46,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/wvyh8rqx",
+      "editable": true,
+      "name": "mobile-client-description",
+      "position": {
+        "left": 140,
+        "top": 1531,
+        "width": 285,
+        "height": 65
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "Unity·C#\n시나리오·AI 비교·학습 관리",
+      "style": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Unity·C#",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Unity·C#",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "시나리오·AI 비교·학습 관리",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "시나리오·AI 비교·학습 관리",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 47,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/xw7i1w7i",
+      "editable": true,
+      "name": "web-server",
+      "position": {
+        "left": 590,
+        "top": 1322,
+        "width": 350,
+        "height": 113
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 48,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/m5wz2h8v",
+      "editable": true,
+      "name": "web-server-title",
+      "position": {
+        "left": 603,
+        "top": 1329,
+        "width": 324,
+        "height": 35
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "웹 서비스 서버",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#AF5D0B",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "웹 서비스 서버",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#AF5D0B",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "웹 서비스 서버",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#AF5D0B",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 49,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/n65gvmp0",
+      "editable": true,
+      "name": "web-server-description",
+      "position": {
+        "left": 603,
+        "top": 1370,
+        "width": 324,
+        "height": 57
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "Node.js·Express\n모의투자·시나리오 서비스",
+      "style": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Node.js·Express",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Node.js·Express",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "모의투자·시나리오 서비스",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "모의투자·시나리오 서비스",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 50,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/8reh4rql",
+      "editable": true,
+      "name": "app-unified-server",
+      "position": {
+        "left": 590,
+        "top": 1481,
+        "width": 350,
+        "height": 127
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 51,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/9s7yxw76",
+      "editable": true,
+      "name": "app-server-title",
+      "position": {
+        "left": 603,
+        "top": 1488,
+        "width": 324,
+        "height": 34
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "앱 통합 서버",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#AF5D0B",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "앱 통합 서버",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#AF5D0B",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "앱 통합 서버",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#AF5D0B",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 52,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/610ze18z",
+      "editable": true,
+      "name": "app-server-description",
+      "position": {
+        "left": 603,
+        "top": 1531,
+        "width": 324,
+        "height": 65
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "Python·FastAPI / 8000 포트\n로그인·주문·학습·AI 요청",
+      "style": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Python·FastAPI / 8000 포트",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Python·FastAPI / 8000 포트",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "로그인·주문·학습·AI 요청",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "로그인·주문·학습·AI 요청",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 53,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/729076pk",
+      "editable": true,
+      "position": {
+        "left": 440,
+        "top": 1378.5,
+        "width": 150,
+        "height": 0
+      },
+      "geometry": "straightConnector1",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    },
+    {
+      "order": 54,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/1wb2xkrm",
+      "editable": true,
+      "position": {
+        "left": 440,
+        "top": 1544.5,
+        "width": 150,
+        "height": 0
+      },
+      "geometry": "straightConnector1",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    },
+    {
+      "order": 55,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/gv214fa1",
+      "editable": true,
+      "name": "web-request",
+      "position": {
+        "left": 444,
+        "top": 1348,
+        "width": 142,
+        "height": 31
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "요청·응답",
+      "style": {
+        "anchor": 2,
+        "fontSize": 19,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "요청·응답",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 19,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "요청·응답",
+              "anchor": 2,
+              "fontSize": 19,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 56,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/futkva9g",
+      "editable": true,
+      "name": "app-request",
+      "position": {
+        "left": 444,
+        "top": 1512,
+        "width": 142,
+        "height": 31
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "요청·응답",
+      "style": {
+        "anchor": 2,
+        "fontSize": 19,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "요청·응답",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 19,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "요청·응답",
+              "anchor": 2,
+              "fontSize": 19,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 57,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/utkj25sv",
+      "editable": true,
+      "name": "ai-and-data-services",
+      "position": {
+        "left": 1110,
+        "top": 1322,
+        "width": 365,
+        "height": 286
+      },
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#8C9CAF",
+      "lineWidth": 1.5
+    },
+    {
+      "order": 58,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/tsb2t0rq",
+      "editable": true,
+      "name": "ai-services-title",
+      "position": {
+        "left": 1120,
+        "top": 1330,
+        "width": 345,
+        "height": 35
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "AI 분석·학습 평가",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#AF5D0B",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AI 분석·학습 평가",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#AF5D0B",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI 분석·학습 평가",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#AF5D0B",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 59,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/sri10va5",
+      "editable": true,
+      "name": "ai-services-description",
+      "position": {
+        "left": 1120,
+        "top": 1374,
+        "width": 345,
+        "height": 86
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "OpenAI·Gemini·Ollama\n공시 RAG와 5개 투자자 관점\n규칙 기반 평가와 AI 코칭",
+      "style": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "OpenAI·Gemini·Ollama",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "OpenAI·Gemini·Ollama",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "공시 RAG와 5개 투자자 관점",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "공시 RAG와 5개 투자자 관점",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "규칙 기반 평가와 AI 코칭",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "규칙 기반 평가와 AI 코칭",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 60,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/7q9krq9k",
+      "editable": true,
+      "name": "data-services-title",
+      "position": {
+        "left": 1120,
+        "top": 1468,
+        "width": 345,
+        "height": 34
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "데이터와 기록",
+      "style": {
+        "anchor": 2,
+        "fontSize": 26,
+        "typeface": "Malgun Gothic",
+        "color": "#244C7D",
+        "bold": true,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "데이터와 기록",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 26,
+            "typeface": "Malgun Gothic",
+            "color": "#244C7D",
+            "bold": true,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "데이터와 기록",
+              "anchor": 2,
+              "fontSize": 26,
+              "typeface": "Malgun Gothic",
+              "color": "#244C7D",
+              "bold": true,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 61,
+      "kind": "textbox",
+      "scope": "slide",
+      "id": "sh/6p0jylsz",
+      "editable": true,
+      "name": "data-services-description",
+      "position": {
+        "left": 1120,
+        "top": 1507,
+        "width": 345,
+        "height": 89
+      },
+      "geometry": "rect",
+      "lineWidth": 0,
+      "text": "KIS 시세·뉴스·공시 API\nMongoDB Atlas\n사용자·주문·학습·판단 기록",
+      "style": {
+        "anchor": 2,
+        "fontSize": 21,
+        "typeface": "Malgun Gothic",
+        "color": "#18334E",
+        "bold": false,
+        "italic": false,
+        "alignment": "center",
+        "verticalAlignment": "middle",
+        "lineSpacing": 1.05,
+        "textTransform": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "KIS 시세·뉴스·공시 API",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "KIS 시세·뉴스·공시 API",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "MongoDB Atlas",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "MongoDB Atlas",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "text": "사용자·주문·학습·판단 기록",
+          "lineSpacingPercent": 105000,
+          "style": {
+            "fontSize": 21,
+            "typeface": "Malgun Gothic",
+            "color": "#18334E",
+            "bold": false,
+            "alignment": "center",
+            "lineSpacing": 1.05
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "사용자·주문·학습·판단 기록",
+              "anchor": 2,
+              "fontSize": 21,
+              "typeface": "Malgun Gothic",
+              "color": "#18334E",
+              "bold": false,
+              "alignment": "center",
+              "verticalAlignment": "middle",
+              "lineSpacing": 1.05,
+              "insets": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 62,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/dov254ru",
+      "editable": true,
+      "position": {
+        "left": 940,
+        "top": 1378.5,
+        "width": 170,
+        "height": 86.5
+      },
+      "geometry": "bentConnector3",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    },
+    {
+      "order": 63,
+      "kind": "shape",
+      "scope": "slide",
+      "id": "sh/cnmlcza9",
+      "editable": true,
+      "position": {
+        "left": 940,
+        "top": 1465,
+        "width": 170,
+        "height": 79.5
+      },
+      "verticalFlip": true,
+      "geometry": "bentConnector3",
+      "lineColor": "#53697E",
+      "lineWidth": 2
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+import fs from 'node:fs/promises';
+import {FileBlob, PresentationFile} from 'file:///C:/Users/hk010/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/@oai/artifact-tool/dist/artifact_tool.mjs';
+const file='C:/Users/hk010/OneDrive/바탕 화면/Full_Server/outputs/ANTITUDE_전시회판넬_웹_앱통합.pptx';
+const p=await PresentationFile.importPptx(await FileBlob.load(file));
+const image=await p.slides.items[0].export({format:'png',scale:1});
+await fs.writeFile(new URL('./final-render.png',import.meta.url),new Uint8Array(await image.arrayBuffer()));
+const q=await p.inspect({select:'$.slides[0]',include:['notes.text','elements.text']});
+await fs.writeFile(new URL('./final-content.ndjson',import.meta.url),q.ndjson);
+console.log('Final PPTX opened and rendered. Slides:',p.slides.items.length);
+console.log('Original notes retained:',q.ndjson.includes('로고 출처'));
+console.log('App notes retained:',q.ndjson.includes('AiRamenController.cs'));

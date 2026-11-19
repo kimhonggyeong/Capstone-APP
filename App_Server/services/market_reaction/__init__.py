@@ -1,0 +1,1 @@
+"""Market-reaction simulation service."""

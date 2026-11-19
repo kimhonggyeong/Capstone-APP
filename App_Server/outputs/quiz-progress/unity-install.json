@@ -1,0 +1,47 @@
+[
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\FinanceQuizManager.cs",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\FinanceQuizManager.cs",
+    "expected_sha256": "a2ed5ddf8e1168123c92fb42dacc7e2bcca3193c8f5ca2ae9ceeb767bd2a7dd9"
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\FinanceQuizProgressService.cs",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\FinanceQuizProgressService.cs",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\FinanceQuizProgressService.cs.meta",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\FinanceQuizProgressService.cs.meta",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\FinanceQuizProgressState.cs",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\FinanceQuizProgressState.cs",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\FinanceQuizProgressState.cs.meta",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\FinanceQuizProgressState.cs.meta",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\QuizLearningProgressUI.cs",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\QuizLearningProgressUI.cs",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\QuizLearningProgressUI.cs.meta",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\QuizLearningProgressUI.cs.meta",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\SETUP_QuizProgress.md",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\SETUP_QuizProgress.md",
+    "expected_sha256": null
+  },
+  {
+    "source": "C:\\Users\\hk010\\OneDrive\\바탕 화면\\Full_Server\\outputs\\quiz-progress\\unity\\SETUP_QuizProgress.md.meta",
+    "destination": "C:\\Users\\hk010\\Ant Teacher_V2\\Assets\\Scripts\\Term\\Quiz\\SETUP_QuizProgress.md.meta",
+    "expected_sha256": null
+  }
+]

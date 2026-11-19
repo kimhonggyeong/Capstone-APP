@@ -1,0 +1,38 @@
+[
+  {
+    "model": "gemini-3.6-flash",
+    "timeout_seconds": 15,
+    "attempts": 1,
+    "request": "minimal JSON diagnostic, max_output_tokens=256",
+    "ok": false,
+    "error_type": "ConnectError",
+    "code": null,
+    "status": "",
+    "message": "[Errno 11001] getaddrinfo failed",
+    "elapsed_seconds": 0.56
+  },
+  {
+    "model": "gemini-3.5-flash",
+    "timeout_seconds": 15,
+    "attempts": 1,
+    "request": "minimal JSON diagnostic, max_output_tokens=256",
+    "ok": false,
+    "error_type": "ConnectError",
+    "code": null,
+    "status": "",
+    "message": "[Errno 11001] getaddrinfo failed",
+    "elapsed_seconds": 0.49
+  },
+  {
+    "model": "gemini-3.5-flash-lite",
+    "timeout_seconds": 15,
+    "attempts": 1,
+    "request": "minimal JSON diagnostic, max_output_tokens=256",
+    "ok": false,
+    "error_type": "ConnectError",
+    "code": null,
+    "status": "",
+    "message": "[Errno 11001] getaddrinfo failed",
+    "elapsed_seconds": 0.53
+  }
+]
